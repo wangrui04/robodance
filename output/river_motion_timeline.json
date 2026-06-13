@@ -1,0 +1,348 @@
+{
+    "song_name": "river.mp3",
+    "duration": 232.52,
+    "motion_cooldown": 6.0,
+    "num_motion_events": 34,
+    "motion_timeline": [
+        {
+            "time": 0.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0352,
+                "brightness": 612.73,
+                "energy_change": 0.0,
+                "movement_quality": "smooth"
+            }
+        },
+        {
+            "time": 7.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1019,
+                "brightness": 1736.76,
+                "energy_change": 0.0225,
+                "movement_quality": "flowing"
+            }
+        },
+        {
+            "time": 16.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0657,
+                "brightness": 2987.37,
+                "energy_change": -0.0459,
+                "movement_quality": "smooth"
+            }
+        },
+        {
+            "time": 22.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1167,
+                "brightness": 2225.69,
+                "energy_change": -0.0094,
+                "movement_quality": "flowing"
+            }
+        },
+        {
+            "time": 29.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.1706,
+                "brightness": 2548.99,
+                "energy_change": 0.0425,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 35.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1398,
+                "brightness": 2488.44,
+                "energy_change": -0.0616,
+                "movement_quality": "flowing"
+            }
+        },
+        {
+            "time": 41.0,
+            "action": "contract_movement",
+            "source": {
+                "energy": 0.1601,
+                "brightness": 2049.27,
+                "energy_change": -0.0815,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 47.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.15,
+                "brightness": 2602.12,
+                "energy_change": -0.0167,
+                "movement_quality": "flowing"
+            }
+        },
+        {
+            "time": 53.0,
+            "action": "strong_forward_pulse",
+            "source": {
+                "energy": 0.2923,
+                "brightness": 2170.97,
+                "energy_change": -0.0004,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 59.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.2423,
+                "brightness": 2308.96,
+                "energy_change": 0.0103,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 65.0,
+            "action": "expand_movement",
+            "source": {
+                "energy": 0.3891,
+                "brightness": 2042.73,
+                "energy_change": 0.2377,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 72.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.2489,
+                "brightness": 2144.87,
+                "energy_change": -0.0494,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 78.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.1491,
+                "brightness": 3188.4,
+                "energy_change": 0.052,
+                "movement_quality": "flowing"
+            }
+        },
+        {
+            "time": 84.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1031,
+                "brightness": 1056.86,
+                "energy_change": 0.0008,
+                "movement_quality": "flowing"
+            }
+        },
+        {
+            "time": 90.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.1952,
+                "brightness": 2633.17,
+                "energy_change": 0.0535,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 96.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.1988,
+                "brightness": 1910.67,
+                "energy_change": 0.0435,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 102.0,
+            "action": "contract_movement",
+            "source": {
+                "energy": 0.1953,
+                "brightness": 2217.71,
+                "energy_change": -0.1104,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 108.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.1964,
+                "brightness": 2122.61,
+                "energy_change": -0.016,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 117.0,
+            "action": "expand_movement",
+            "source": {
+                "energy": 0.2692,
+                "brightness": 2363.98,
+                "energy_change": 0.1175,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 123.0,
+            "action": "strong_forward_pulse",
+            "source": {
+                "energy": 0.3125,
+                "brightness": 2390.71,
+                "energy_change": 0.0507,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 130.0,
+            "action": "expand_movement",
+            "source": {
+                "energy": 0.3546,
+                "brightness": 1602.99,
+                "energy_change": 0.0972,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 137.0,
+            "action": "contract_movement",
+            "source": {
+                "energy": 0.1976,
+                "brightness": 2374.11,
+                "energy_change": -0.1211,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 144.0,
+            "action": "strong_forward_pulse",
+            "source": {
+                "energy": 0.2983,
+                "brightness": 2195.59,
+                "energy_change": 0.0792,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 150.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1246,
+                "brightness": 1748.38,
+                "energy_change": -0.0115,
+                "movement_quality": "flowing"
+            }
+        },
+        {
+            "time": 156.0,
+            "action": "contract_movement",
+            "source": {
+                "energy": 0.1351,
+                "brightness": 2373.16,
+                "energy_change": -0.105,
+                "movement_quality": "flowing"
+            }
+        },
+        {
+            "time": 162.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.1837,
+                "brightness": 2517.9,
+                "energy_change": 0.0204,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 168.0,
+            "action": "contract_movement",
+            "source": {
+                "energy": 0.1782,
+                "brightness": 2816.42,
+                "energy_change": -0.1006,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 174.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.2148,
+                "brightness": 2145.46,
+                "energy_change": -0.0467,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 180.0,
+            "action": "expand_movement",
+            "source": {
+                "energy": 0.1696,
+                "brightness": 3017.54,
+                "energy_change": 0.1394,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 187.0,
+            "action": "contract_movement",
+            "source": {
+                "energy": 0.2239,
+                "brightness": 2759.31,
+                "energy_change": -0.1559,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 193.0,
+            "action": "strong_forward_pulse",
+            "source": {
+                "energy": 0.2712,
+                "brightness": 2115.7,
+                "energy_change": -0.0276,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 201.0,
+            "action": "expand_movement",
+            "source": {
+                "energy": 0.3432,
+                "brightness": 1935.09,
+                "energy_change": 0.0893,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 208.0,
+            "action": "contract_movement",
+            "source": {
+                "energy": 0.1855,
+                "brightness": 2295.14,
+                "energy_change": -0.1406,
+                "movement_quality": "strong"
+            }
+        },
+        {
+            "time": 214.0,
+            "action": "end_pose",
+            "source": {
+                "energy": 0.0,
+                "brightness": 192.12,
+                "energy_change": -0.0,
+                "movement_quality": "still"
+            }
+        }
+    ]
+}

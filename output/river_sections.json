@@ -1,0 +1,55 @@
+{
+    "song_name": "river.mp3",
+    "duration": 232.52,
+    "num_sections": 8,
+    "sections": [
+        {
+            "section_id": 2,
+            "start": 0.0,
+            "end": 31.56,
+            "duration": 31.56
+        },
+        {
+            "section_id": 3,
+            "start": 31.56,
+            "end": 55.24,
+            "duration": 23.68
+        },
+        {
+            "section_id": 4,
+            "start": 55.24,
+            "end": 59.44,
+            "duration": 4.2
+        },
+        {
+            "section_id": 5,
+            "start": 59.44,
+            "end": 148.1,
+            "duration": 88.66
+        },
+        {
+            "section_id": 6,
+            "start": 148.1,
+            "end": 184.65,
+            "duration": 36.55
+        },
+        {
+            "section_id": 7,
+            "start": 184.65,
+            "end": 209.77,
+            "duration": 25.12
+        },
+        {
+            "section_id": 8,
+            "start": 209.77,
+            "end": 218.31,
+            "duration": 8.54
+        },
+        {
+            "section_id": 9,
+            "start": 218.31,
+            "end": 232.52,
+            "duration": 14.21
+        }
+    ]
+}

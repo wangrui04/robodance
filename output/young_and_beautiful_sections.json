@@ -1,0 +1,55 @@
+{
+    "song_name": "young_and_beautiful.mp3",
+    "duration": 236.01,
+    "num_sections": 8,
+    "sections": [
+        {
+            "section_id": 2,
+            "start": 0.0,
+            "end": 145.29,
+            "duration": 145.29
+        },
+        {
+            "section_id": 3,
+            "start": 145.29,
+            "end": 149.82,
+            "duration": 4.53
+        },
+        {
+            "section_id": 4,
+            "start": 149.82,
+            "end": 170.13,
+            "duration": 20.31
+        },
+        {
+            "section_id": 5,
+            "start": 170.13,
+            "end": 172.22,
+            "duration": 2.09
+        },
+        {
+            "section_id": 6,
+            "start": 172.22,
+            "end": 178.42,
+            "duration": 6.2
+        },
+        {
+            "section_id": 7,
+            "start": 178.42,
+            "end": 182.46,
+            "duration": 4.04
+        },
+        {
+            "section_id": 8,
+            "start": 182.46,
+            "end": 228.72,
+            "duration": 46.26
+        },
+        {
+            "section_id": 9,
+            "start": 228.72,
+            "end": 236.01,
+            "duration": 7.29
+        }
+    ]
+}
