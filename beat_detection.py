@@ -1,4 +1,7 @@
-
+"""
+Beat Detection and Feature Extraction Script
+This script processes all .mp3 files in the "music" folder, detects beats, and extracts features such as tempo, energy, and brightness. The results are saved as JSON files in the "output" folder.         
+"""
 import json
 import librosa
 
