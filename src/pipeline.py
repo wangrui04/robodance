@@ -7,6 +7,7 @@ from motion_planner import generate_motion_timeline
 from motion_parameter_generator import generate_motion_parameters
 from motion_visualizer import visualize_motion
 from motion_animator import animate_motion
+from rosbot_command_generator import generate_rosbot_commands
 
 
 project_root = Path(__file__).resolve().parent.parent
@@ -21,6 +22,7 @@ motion_timeline_folder = output_folder / "motion_timelines"
 motion_parameter_folder = output_folder / "motion_parameters"
 visualization_folder = output_folder / "visualizations"
 animation_folder = output_folder / "animations"
+rosbot_command_folder = output_folder / "rosbot_commands"
 
 for folder in [
     feature_folder,
@@ -53,6 +55,10 @@ for audio_file in sorted(music_folder.glob("*.mp3")):
         motion_timeline,
         motion_parameter_folder
     )
+    rosbot_commands = generate_rosbot_commands(
+        motion_parameters,
+        rosbot_command_folder
+    )
     animation_file = animate_motion(
         motion_parameters,
         animation_folder
@@ -66,5 +72,6 @@ for audio_file in sorted(music_folder.glob("*.mp3")):
     print(f"Motion events: {motion_timeline['num_motion_events']}")
     print(f"Parameterized events: {motion_parameters['num_motion_events']}")
     print(f"Animation: {animation_file}")
+    print(f"ROSbot commands: {rosbot_commands['num_commands']}")
 
 print("\nPipeline complete.")
