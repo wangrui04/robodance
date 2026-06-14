@@ -71,7 +71,7 @@ for audio_file in sorted(music_folder.glob("*.mp3")):
     print(f"Genre: {genre['predicted_genre']}")
     print(f"Motion events: {motion_timeline['num_motion_events']}")
     print(f"Parameterized events: {motion_parameters['num_motion_events']}")
-    print(f"Animation: {animation_file}")
     print(f"ROSbot commands: {rosbot_commands['num_commands']}")
+    print(f"Animation: {animation_file}")
 
 print("\nPipeline complete.")
