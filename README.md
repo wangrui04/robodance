@@ -265,6 +265,3 @@ Current work focuses on:
 * Style-specific dance generation
 * Robot dance improvisation
 * Human-robot dance interaction
-
-```
-```
