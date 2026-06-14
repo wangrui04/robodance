@@ -1,0 +1,10 @@
+{
+    "song_name": "ambition.mp3",
+    "predicted_genre": "pop",
+    "features_used": {
+        "tempo_bpm": 136.0,
+        "avg_energy": 0.1594,
+        "brightness": 2101.77,
+        "num_beats": 445
+    }
+}

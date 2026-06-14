@@ -1,0 +1,10 @@
+{
+    "song_name": "fly_moon.mp3",
+    "predicted_genre": "jazz",
+    "features_used": {
+        "tempo_bpm": 123.05,
+        "avg_energy": 0.1051,
+        "brightness": 1989.59,
+        "num_beats": 289
+    }
+}

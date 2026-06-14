@@ -1,0 +1,10 @@
+{
+    "song_name": "king_and_concubine.mp3",
+    "predicted_genre": "contemporary",
+    "features_used": {
+        "tempo_bpm": 103.36,
+        "avg_energy": 0.1865,
+        "brightness": 1731.96,
+        "num_beats": 389
+    }
+}

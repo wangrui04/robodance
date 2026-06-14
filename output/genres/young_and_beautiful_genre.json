@@ -1,0 +1,10 @@
+{
+    "song_name": "young_and_beautiful.mp3",
+    "predicted_genre": "contemporary",
+    "features_used": {
+        "tempo_bpm": 117.45,
+        "avg_energy": 0.2083,
+        "brightness": 1384.23,
+        "num_beats": 444
+    }
+}

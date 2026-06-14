@@ -1,0 +1,10 @@
+{
+    "song_name": "Ethereal.mp3",
+    "predicted_genre": "contemporary",
+    "features_used": {
+        "tempo_bpm": 95.7,
+        "avg_energy": 0.1037,
+        "brightness": 1284.55,
+        "num_beats": 262
+    }
+}

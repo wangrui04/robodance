@@ -1,0 +1,119 @@
+{
+    "song_name": "Ethereal.mp3",
+    "duration": 168.01,
+    "predicted_genre": "contemporary",
+    "motion_cooldown": 6.0,
+    "num_motion_events": 10,
+    "motion_timeline": [
+        {
+            "time": 3.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1065,
+                "brightness": 1415.32,
+                "energy_change": -0.0118,
+                "movement_quality": "flowing",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 23.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0783,
+                "brightness": 860.73,
+                "energy_change": -0.0054,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 29.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.0997,
+                "brightness": 806.6,
+                "energy_change": -0.0035,
+                "movement_quality": "flowing",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 102.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0737,
+                "brightness": 1231.05,
+                "energy_change": -0.0293,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 108.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1141,
+                "brightness": 1227.16,
+                "energy_change": 0.0145,
+                "movement_quality": "flowing",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 120.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0716,
+                "brightness": 1083.22,
+                "energy_change": -0.068,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 126.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1154,
+                "brightness": 1310.63,
+                "energy_change": 0.0011,
+                "movement_quality": "flowing",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 141.0,
+            "action": "hold",
+            "source": {
+                "energy": 0.0498,
+                "brightness": 2244.96,
+                "energy_change": -0.0403,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 147.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1068,
+                "brightness": 1311.69,
+                "energy_change": -0.0049,
+                "movement_quality": "flowing",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 163.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0581,
+                "brightness": 2295.41,
+                "energy_change": -0.06,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            }
+        }
+    ]
+}

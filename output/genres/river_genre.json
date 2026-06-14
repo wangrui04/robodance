@@ -1,0 +1,10 @@
+{
+    "song_name": "river.mp3",
+    "predicted_genre": "pop",
+    "features_used": {
+        "tempo_bpm": 123.05,
+        "avg_energy": 0.194,
+        "brightness": 1979.29,
+        "num_beats": 432
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "song_name": "BlackSwanInst.mp3",
+    "predicted_genre": "contemporary",
+    "features_used": {
+        "tempo_bpm": 73.83,
+        "avg_energy": 0.1351,
+        "brightness": 1771.08,
+        "num_beats": 243
+    }
+}

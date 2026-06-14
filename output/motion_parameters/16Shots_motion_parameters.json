@@ -1,0 +1,568 @@
+{
+    "song_name": "16Shots.mp3",
+    "duration": 223.45,
+    "predicted_genre": "hiphop",
+    "num_motion_events": 28,
+    "motion_parameters": [
+        {
+            "time": 3.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1089,
+                "brightness": 3365.93,
+                "energy_change": 0.0184,
+                "movement_quality": "flowing",
+                "genre": "hiphop"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 10.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.1296,
+                "brightness": 2597.33,
+                "energy_change": 0.0262,
+                "movement_quality": "flowing",
+                "genre": "hiphop"
+            },
+            "speed": 1.0,
+            "amplitude": 0.8,
+            "duration": 1.5,
+            "direction": "rotate",
+            "turn_angle": 90,
+            "curvature": 0.0,
+            "motion_shape": "sharp_rotation",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 16.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1163,
+                "brightness": 2755.43,
+                "energy_change": -0.002,
+                "movement_quality": "flowing",
+                "genre": "hiphop"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 22.0,
+            "action": "contract_movement",
+            "source": {
+                "energy": 0.0414,
+                "brightness": 1415.15,
+                "energy_change": -0.0847,
+                "movement_quality": "smooth",
+                "genre": "hiphop"
+            },
+            "speed": 0.5,
+            "amplitude": 0.8,
+            "duration": 3.0,
+            "direction": "inward_spiral",
+            "turn_angle": -45,
+            "curvature": 0.8,
+            "motion_shape": "spiral_in",
+            "body_level": "medium_low",
+            "repeat": 1
+        },
+        {
+            "time": 28.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.162,
+                "brightness": 1931.1,
+                "energy_change": 0.0053,
+                "movement_quality": "strong",
+                "genre": "hiphop"
+            },
+            "speed": 0.8,
+            "amplitude": 1.0,
+            "duration": 2.0,
+            "direction": "forward_rebound",
+            "turn_angle": 0,
+            "curvature": 0.1,
+            "motion_shape": "pulse",
+            "body_level": "low",
+            "repeat": 1
+        },
+        {
+            "time": 47.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0708,
+                "brightness": 2406.54,
+                "energy_change": -0.083,
+                "movement_quality": "smooth",
+                "genre": "hiphop"
+            },
+            "speed": 0.2,
+            "amplitude": 0.4,
+            "duration": 4.0,
+            "direction": "side_to_side",
+            "turn_angle": 0,
+            "curvature": 0.8,
+            "motion_shape": "s_curve",
+            "body_level": "medium",
+            "repeat": 2
+        },
+        {
+            "time": 53.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.0966,
+                "brightness": 2289.58,
+                "energy_change": -0.0134,
+                "movement_quality": "flowing",
+                "genre": "hiphop"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 59.0,
+            "action": "expand_movement",
+            "source": {
+                "energy": 0.1502,
+                "brightness": 2636.06,
+                "energy_change": 0.0918,
+                "movement_quality": "strong",
+                "genre": "hiphop"
+            },
+            "speed": 0.6,
+            "amplitude": 1.5,
+            "duration": 3.0,
+            "direction": "outward_spiral",
+            "turn_angle": 45,
+            "curvature": 0.9,
+            "motion_shape": "spiral_out",
+            "body_level": "high",
+            "repeat": 1
+        },
+        {
+            "time": 65.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.1716,
+                "brightness": 2153.71,
+                "energy_change": -0.0034,
+                "movement_quality": "strong",
+                "genre": "hiphop"
+            },
+            "speed": 0.8,
+            "amplitude": 1.0,
+            "duration": 2.0,
+            "direction": "forward_rebound",
+            "turn_angle": 0,
+            "curvature": 0.1,
+            "motion_shape": "pulse",
+            "body_level": "low",
+            "repeat": 1
+        },
+        {
+            "time": 71.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.1768,
+                "brightness": 2563.34,
+                "energy_change": 0.0044,
+                "movement_quality": "strong",
+                "genre": "hiphop"
+            },
+            "speed": 1.0,
+            "amplitude": 0.8,
+            "duration": 1.5,
+            "direction": "rotate",
+            "turn_angle": 90,
+            "curvature": 0.0,
+            "motion_shape": "sharp_rotation",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 78.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.1723,
+                "brightness": 2493.1,
+                "energy_change": -0.0147,
+                "movement_quality": "strong",
+                "genre": "hiphop"
+            },
+            "speed": 0.8,
+            "amplitude": 1.0,
+            "duration": 2.0,
+            "direction": "forward_rebound",
+            "turn_angle": 0,
+            "curvature": 0.1,
+            "motion_shape": "pulse",
+            "body_level": "low",
+            "repeat": 1
+        },
+        {
+            "time": 84.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1407,
+                "brightness": 1939.02,
+                "energy_change": 0.0345,
+                "movement_quality": "flowing",
+                "genre": "hiphop"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 90.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.1698,
+                "brightness": 900.96,
+                "energy_change": 0.0513,
+                "movement_quality": "strong",
+                "genre": "hiphop"
+            },
+            "speed": 0.8,
+            "amplitude": 1.0,
+            "duration": 2.0,
+            "direction": "forward_rebound",
+            "turn_angle": 0,
+            "curvature": 0.1,
+            "motion_shape": "pulse",
+            "body_level": "low",
+            "repeat": 1
+        },
+        {
+            "time": 107.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1237,
+                "brightness": 1535.92,
+                "energy_change": -0.048,
+                "movement_quality": "flowing",
+                "genre": "hiphop"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 113.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0508,
+                "brightness": 2820.17,
+                "energy_change": -0.0421,
+                "movement_quality": "smooth",
+                "genre": "hiphop"
+            },
+            "speed": 0.2,
+            "amplitude": 0.4,
+            "duration": 4.0,
+            "direction": "side_to_side",
+            "turn_angle": 0,
+            "curvature": 0.8,
+            "motion_shape": "s_curve",
+            "body_level": "medium",
+            "repeat": 2
+        },
+        {
+            "time": 119.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1302,
+                "brightness": 2467.28,
+                "energy_change": 0.0086,
+                "movement_quality": "flowing",
+                "genre": "hiphop"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 125.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.1755,
+                "brightness": 2549.79,
+                "energy_change": 0.0076,
+                "movement_quality": "strong",
+                "genre": "hiphop"
+            },
+            "speed": 1.0,
+            "amplitude": 0.8,
+            "duration": 1.5,
+            "direction": "rotate",
+            "turn_angle": 90,
+            "curvature": 0.0,
+            "motion_shape": "sharp_rotation",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 134.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.1719,
+                "brightness": 2392.35,
+                "energy_change": -0.0027,
+                "movement_quality": "strong",
+                "genre": "hiphop"
+            },
+            "speed": 0.8,
+            "amplitude": 1.0,
+            "duration": 2.0,
+            "direction": "forward_rebound",
+            "turn_angle": 0,
+            "curvature": 0.1,
+            "motion_shape": "pulse",
+            "body_level": "low",
+            "repeat": 1
+        },
+        {
+            "time": 140.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.1842,
+                "brightness": 2725.86,
+                "energy_change": 0.0139,
+                "movement_quality": "strong",
+                "genre": "hiphop"
+            },
+            "speed": 1.0,
+            "amplitude": 0.8,
+            "duration": 1.5,
+            "direction": "rotate",
+            "turn_angle": 90,
+            "curvature": 0.0,
+            "motion_shape": "sharp_rotation",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 146.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1088,
+                "brightness": 2463.94,
+                "energy_change": -0.0064,
+                "movement_quality": "flowing",
+                "genre": "hiphop"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 168.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.1695,
+                "brightness": 1641.24,
+                "energy_change": 0.0355,
+                "movement_quality": "strong",
+                "genre": "hiphop"
+            },
+            "speed": 0.8,
+            "amplitude": 1.0,
+            "duration": 2.0,
+            "direction": "forward_rebound",
+            "turn_angle": 0,
+            "curvature": 0.1,
+            "motion_shape": "pulse",
+            "body_level": "low",
+            "repeat": 1
+        },
+        {
+            "time": 174.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0642,
+                "brightness": 1827.17,
+                "energy_change": -0.0185,
+                "movement_quality": "smooth",
+                "genre": "hiphop"
+            },
+            "speed": 0.2,
+            "amplitude": 0.4,
+            "duration": 4.0,
+            "direction": "side_to_side",
+            "turn_angle": 0,
+            "curvature": 0.8,
+            "motion_shape": "s_curve",
+            "body_level": "medium",
+            "repeat": 2
+        },
+        {
+            "time": 186.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.0859,
+                "brightness": 1940.09,
+                "energy_change": 0.013,
+                "movement_quality": "flowing",
+                "genre": "hiphop"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 192.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.06,
+                "brightness": 3355.56,
+                "energy_change": -0.0182,
+                "movement_quality": "smooth",
+                "genre": "hiphop"
+            },
+            "speed": 0.2,
+            "amplitude": 0.4,
+            "duration": 4.0,
+            "direction": "side_to_side",
+            "turn_angle": 0,
+            "curvature": 0.8,
+            "motion_shape": "s_curve",
+            "body_level": "medium",
+            "repeat": 2
+        },
+        {
+            "time": 199.0,
+            "action": "end_pose",
+            "source": {
+                "energy": 0.0024,
+                "brightness": 1661.87,
+                "energy_change": -0.0621,
+                "movement_quality": "still",
+                "genre": "hiphop"
+            },
+            "speed": 0.0,
+            "amplitude": 0.0,
+            "duration": 5.0,
+            "direction": "none",
+            "turn_angle": 0,
+            "curvature": 0.0,
+            "motion_shape": "end_pose",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 205.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.1786,
+                "brightness": 2653.37,
+                "energy_change": 0.002,
+                "movement_quality": "strong",
+                "genre": "hiphop"
+            },
+            "speed": 1.0,
+            "amplitude": 0.8,
+            "duration": 1.5,
+            "direction": "rotate",
+            "turn_angle": 90,
+            "curvature": 0.0,
+            "motion_shape": "sharp_rotation",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 212.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.1729,
+                "brightness": 2362.13,
+                "energy_change": -0.0009,
+                "movement_quality": "strong",
+                "genre": "hiphop"
+            },
+            "speed": 0.8,
+            "amplitude": 1.0,
+            "duration": 2.0,
+            "direction": "forward_rebound",
+            "turn_angle": 0,
+            "curvature": 0.1,
+            "motion_shape": "pulse",
+            "body_level": "low",
+            "repeat": 1
+        },
+        {
+            "time": 218.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.1838,
+                "brightness": 2710.31,
+                "energy_change": 0.011,
+                "movement_quality": "strong",
+                "genre": "hiphop"
+            },
+            "speed": 1.0,
+            "amplitude": 0.8,
+            "duration": 1.5,
+            "direction": "rotate",
+            "turn_angle": 90,
+            "curvature": 0.0,
+            "motion_shape": "sharp_rotation",
+            "body_level": "medium",
+            "repeat": 1
+        }
+    ]
+}

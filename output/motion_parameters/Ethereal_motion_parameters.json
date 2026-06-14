@@ -1,0 +1,208 @@
+{
+    "song_name": "Ethereal.mp3",
+    "duration": 168.01,
+    "predicted_genre": "contemporary",
+    "num_motion_events": 10,
+    "motion_parameters": [
+        {
+            "time": 3.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1065,
+                "brightness": 1415.32,
+                "energy_change": -0.0118,
+                "movement_quality": "flowing",
+                "genre": "contemporary"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 23.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0783,
+                "brightness": 860.73,
+                "energy_change": -0.0054,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            },
+            "speed": 0.2,
+            "amplitude": 0.4,
+            "duration": 4.0,
+            "direction": "side_to_side",
+            "turn_angle": 0,
+            "curvature": 0.8,
+            "motion_shape": "s_curve",
+            "body_level": "medium",
+            "repeat": 2
+        },
+        {
+            "time": 29.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.0997,
+                "brightness": 806.6,
+                "energy_change": -0.0035,
+                "movement_quality": "flowing",
+                "genre": "contemporary"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 102.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0737,
+                "brightness": 1231.05,
+                "energy_change": -0.0293,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            },
+            "speed": 0.2,
+            "amplitude": 0.4,
+            "duration": 4.0,
+            "direction": "side_to_side",
+            "turn_angle": 0,
+            "curvature": 0.8,
+            "motion_shape": "s_curve",
+            "body_level": "medium",
+            "repeat": 2
+        },
+        {
+            "time": 108.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1141,
+                "brightness": 1227.16,
+                "energy_change": 0.0145,
+                "movement_quality": "flowing",
+                "genre": "contemporary"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 120.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0716,
+                "brightness": 1083.22,
+                "energy_change": -0.068,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            },
+            "speed": 0.2,
+            "amplitude": 0.4,
+            "duration": 4.0,
+            "direction": "side_to_side",
+            "turn_angle": 0,
+            "curvature": 0.8,
+            "motion_shape": "s_curve",
+            "body_level": "medium",
+            "repeat": 2
+        },
+        {
+            "time": 126.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1154,
+                "brightness": 1310.63,
+                "energy_change": 0.0011,
+                "movement_quality": "flowing",
+                "genre": "contemporary"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 141.0,
+            "action": "hold",
+            "source": {
+                "energy": 0.0498,
+                "brightness": 2244.96,
+                "energy_change": -0.0403,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            },
+            "speed": 0.5,
+            "amplitude": 0.5,
+            "duration": 2.0,
+            "direction": "default",
+            "turn_angle": 0,
+            "curvature": 0.0,
+            "motion_shape": "default",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 147.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1068,
+                "brightness": 1311.69,
+                "energy_change": -0.0049,
+                "movement_quality": "flowing",
+                "genre": "contemporary"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 163.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0581,
+                "brightness": 2295.41,
+                "energy_change": -0.06,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            },
+            "speed": 0.2,
+            "amplitude": 0.4,
+            "duration": 4.0,
+            "direction": "side_to_side",
+            "turn_angle": 0,
+            "curvature": 0.8,
+            "motion_shape": "s_curve",
+            "body_level": "medium",
+            "repeat": 2
+        }
+    ]
+}

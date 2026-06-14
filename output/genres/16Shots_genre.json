@@ -1,0 +1,10 @@
+{
+    "song_name": "16Shots.mp3",
+    "predicted_genre": "hiphop",
+    "features_used": {
+        "tempo_bpm": 184.57,
+        "avg_energy": 0.133,
+        "brightness": 2217.25,
+        "num_beats": 696
+    }
+}

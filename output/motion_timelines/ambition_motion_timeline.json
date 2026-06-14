@@ -1,0 +1,240 @@
+{
+    "song_name": "ambition.mp3",
+    "duration": 217.57,
+    "predicted_genre": "pop",
+    "motion_cooldown": 6.0,
+    "num_motion_events": 21,
+    "motion_timeline": [
+        {
+            "time": 3.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0552,
+                "brightness": 721.92,
+                "energy_change": -0.0059,
+                "movement_quality": "smooth",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 15.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1182,
+                "brightness": 1056.24,
+                "energy_change": 0.0404,
+                "movement_quality": "flowing",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 44.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.149,
+                "brightness": 2566.88,
+                "energy_change": 0.035,
+                "movement_quality": "flowing",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 50.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.128,
+                "brightness": 1890.81,
+                "energy_change": -0.0006,
+                "movement_quality": "flowing",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 59.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.1872,
+                "brightness": 1523.0,
+                "energy_change": 0.0416,
+                "movement_quality": "strong",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 65.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1276,
+                "brightness": 1634.59,
+                "energy_change": -0.009,
+                "movement_quality": "flowing",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 71.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.2049,
+                "brightness": 2453.97,
+                "energy_change": 0.0126,
+                "movement_quality": "strong",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 77.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.1945,
+                "brightness": 2813.6,
+                "energy_change": -0.024,
+                "movement_quality": "strong",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 88.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.222,
+                "brightness": 2484.71,
+                "energy_change": 0.0067,
+                "movement_quality": "strong",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 94.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.205,
+                "brightness": 2980.44,
+                "energy_change": -0.0045,
+                "movement_quality": "strong",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 101.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.071,
+                "brightness": 2729.21,
+                "energy_change": -0.1229,
+                "movement_quality": "smooth",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 107.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.1531,
+                "brightness": 2273.88,
+                "energy_change": 0.0093,
+                "movement_quality": "strong",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 113.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.152,
+                "brightness": 2647.77,
+                "energy_change": -0.0057,
+                "movement_quality": "strong",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 120.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.1851,
+                "brightness": 2222.32,
+                "energy_change": 0.0283,
+                "movement_quality": "strong",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 126.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.144,
+                "brightness": 2058.89,
+                "energy_change": -0.01,
+                "movement_quality": "flowing",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 132.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.204,
+                "brightness": 2394.49,
+                "energy_change": 0.0153,
+                "movement_quality": "strong",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 138.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.2072,
+                "brightness": 2884.76,
+                "energy_change": -0.0094,
+                "movement_quality": "strong",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 157.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.2218,
+                "brightness": 2472.39,
+                "energy_change": 0.0043,
+                "movement_quality": "strong",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 163.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.1911,
+                "brightness": 2857.39,
+                "energy_change": -0.005,
+                "movement_quality": "strong",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 198.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0744,
+                "brightness": 1103.87,
+                "energy_change": -0.1438,
+                "movement_quality": "smooth",
+                "genre": "pop"
+            }
+        },
+        {
+            "time": 212.0,
+            "action": "hold",
+            "source": {
+                "energy": 0.0353,
+                "brightness": 1260.34,
+                "energy_change": -0.034,
+                "movement_quality": "smooth",
+                "genre": "pop"
+            }
+        }
+    ]
+}

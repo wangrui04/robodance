@@ -1,0 +1,10 @@
+{
+    "song_name": "Tournelle.mp3",
+    "predicted_genre": "unknown",
+    "features_used": {
+        "tempo_bpm": 161.5,
+        "avg_energy": 0.0803,
+        "brightness": 1359.52,
+        "num_beats": 302
+    }
+}

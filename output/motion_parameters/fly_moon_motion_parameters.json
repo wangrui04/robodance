@@ -1,0 +1,468 @@
+{
+    "song_name": "fly_moon.mp3",
+    "duration": 147.24,
+    "predicted_genre": "jazz",
+    "num_motion_events": 23,
+    "motion_parameters": [
+        {
+            "time": 3.0,
+            "action": "pause",
+            "source": {
+                "energy": 0.0087,
+                "brightness": 2122.1,
+                "energy_change": -0.0016,
+                "movement_quality": "still",
+                "genre": "jazz"
+            },
+            "speed": 0.0,
+            "amplitude": 0.0,
+            "duration": 2.0,
+            "direction": "none",
+            "turn_angle": 0,
+            "curvature": 0.0,
+            "motion_shape": "pause",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 9.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.0933,
+                "brightness": 2559.12,
+                "energy_change": -0.0394,
+                "movement_quality": "flowing",
+                "genre": "jazz"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 15.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.052,
+                "brightness": 1566.79,
+                "energy_change": -0.0364,
+                "movement_quality": "smooth",
+                "genre": "jazz"
+            },
+            "speed": 0.2,
+            "amplitude": 0.4,
+            "duration": 4.0,
+            "direction": "side_to_side",
+            "turn_angle": 0,
+            "curvature": 0.8,
+            "motion_shape": "s_curve",
+            "body_level": "medium",
+            "repeat": 2
+        },
+        {
+            "time": 21.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.0819,
+                "brightness": 1563.71,
+                "energy_change": 0.0316,
+                "movement_quality": "flowing",
+                "genre": "jazz"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 27.0,
+            "action": "expand_movement",
+            "source": {
+                "energy": 0.2008,
+                "brightness": 1663.44,
+                "energy_change": 0.1334,
+                "movement_quality": "strong",
+                "genre": "jazz"
+            },
+            "speed": 0.6,
+            "amplitude": 1.5,
+            "duration": 3.0,
+            "direction": "outward_spiral",
+            "turn_angle": 45,
+            "curvature": 0.9,
+            "motion_shape": "spiral_out",
+            "body_level": "high",
+            "repeat": 1
+        },
+        {
+            "time": 33.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1007,
+                "brightness": 1284.13,
+                "energy_change": -0.0003,
+                "movement_quality": "flowing",
+                "genre": "jazz"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 40.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.1706,
+                "brightness": 2454.26,
+                "energy_change": 0.0777,
+                "movement_quality": "strong",
+                "genre": "jazz"
+            },
+            "speed": 0.8,
+            "amplitude": 1.0,
+            "duration": 2.0,
+            "direction": "forward_rebound",
+            "turn_angle": 0,
+            "curvature": 0.1,
+            "motion_shape": "pulse",
+            "body_level": "low",
+            "repeat": 1
+        },
+        {
+            "time": 46.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1166,
+                "brightness": 1413.8,
+                "energy_change": -0.0252,
+                "movement_quality": "flowing",
+                "genre": "jazz"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 55.0,
+            "action": "hold",
+            "source": {
+                "energy": 0.0468,
+                "brightness": 1214.23,
+                "energy_change": -0.0651,
+                "movement_quality": "smooth",
+                "genre": "jazz"
+            },
+            "speed": 0.5,
+            "amplitude": 0.5,
+            "duration": 2.0,
+            "direction": "default",
+            "turn_angle": 0,
+            "curvature": 0.0,
+            "motion_shape": "default",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 61.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.079,
+                "brightness": 1545.54,
+                "energy_change": -0.0082,
+                "movement_quality": "smooth",
+                "genre": "jazz"
+            },
+            "speed": 0.2,
+            "amplitude": 0.4,
+            "duration": 4.0,
+            "direction": "side_to_side",
+            "turn_angle": 0,
+            "curvature": 0.8,
+            "motion_shape": "s_curve",
+            "body_level": "medium",
+            "repeat": 2
+        },
+        {
+            "time": 67.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1252,
+                "brightness": 1668.32,
+                "energy_change": 0.0373,
+                "movement_quality": "flowing",
+                "genre": "jazz"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 74.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.1332,
+                "brightness": 2744.15,
+                "energy_change": 0.0146,
+                "movement_quality": "flowing",
+                "genre": "jazz"
+            },
+            "speed": 1.0,
+            "amplitude": 0.8,
+            "duration": 1.5,
+            "direction": "rotate",
+            "turn_angle": 90,
+            "curvature": 0.0,
+            "motion_shape": "sharp_rotation",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 80.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0747,
+                "brightness": 1761.1,
+                "energy_change": 0.0063,
+                "movement_quality": "smooth",
+                "genre": "jazz"
+            },
+            "speed": 0.2,
+            "amplitude": 0.4,
+            "duration": 4.0,
+            "direction": "side_to_side",
+            "turn_angle": 0,
+            "curvature": 0.8,
+            "motion_shape": "s_curve",
+            "body_level": "medium",
+            "repeat": 2
+        },
+        {
+            "time": 86.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.0887,
+                "brightness": 1152.02,
+                "energy_change": 0.0398,
+                "movement_quality": "flowing",
+                "genre": "jazz"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 92.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.056,
+                "brightness": 1314.85,
+                "energy_change": -0.0073,
+                "movement_quality": "smooth",
+                "genre": "jazz"
+            },
+            "speed": 0.2,
+            "amplitude": 0.4,
+            "duration": 4.0,
+            "direction": "side_to_side",
+            "turn_angle": 0,
+            "curvature": 0.8,
+            "motion_shape": "s_curve",
+            "body_level": "medium",
+            "repeat": 2
+        },
+        {
+            "time": 99.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.1217,
+                "brightness": 2918.01,
+                "energy_change": 0.0631,
+                "movement_quality": "flowing",
+                "genre": "jazz"
+            },
+            "speed": 1.0,
+            "amplitude": 0.8,
+            "duration": 1.5,
+            "direction": "rotate",
+            "turn_angle": 90,
+            "curvature": 0.0,
+            "motion_shape": "sharp_rotation",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 105.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1383,
+                "brightness": 2241.96,
+                "energy_change": -0.0153,
+                "movement_quality": "flowing",
+                "genre": "jazz"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 111.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0599,
+                "brightness": 1687.02,
+                "energy_change": -0.0639,
+                "movement_quality": "smooth",
+                "genre": "jazz"
+            },
+            "speed": 0.2,
+            "amplitude": 0.4,
+            "duration": 4.0,
+            "direction": "side_to_side",
+            "turn_angle": 0,
+            "curvature": 0.8,
+            "motion_shape": "s_curve",
+            "body_level": "medium",
+            "repeat": 2
+        },
+        {
+            "time": 117.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.0918,
+                "brightness": 1855.02,
+                "energy_change": -0.0525,
+                "movement_quality": "flowing",
+                "genre": "jazz"
+            },
+            "speed": 0.4,
+            "amplitude": 0.7,
+            "duration": 3.0,
+            "direction": "arc",
+            "turn_angle": 35,
+            "curvature": 0.7,
+            "motion_shape": "arc",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 123.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.1773,
+                "brightness": 2722.09,
+                "energy_change": 0.0695,
+                "movement_quality": "strong",
+                "genre": "jazz"
+            },
+            "speed": 1.0,
+            "amplitude": 0.8,
+            "duration": 1.5,
+            "direction": "rotate",
+            "turn_angle": 90,
+            "curvature": 0.0,
+            "motion_shape": "sharp_rotation",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 129.0,
+            "action": "strong_pulse",
+            "source": {
+                "energy": 0.2046,
+                "brightness": 2478.16,
+                "energy_change": 0.0085,
+                "movement_quality": "strong",
+                "genre": "jazz"
+            },
+            "speed": 0.8,
+            "amplitude": 1.0,
+            "duration": 2.0,
+            "direction": "forward_rebound",
+            "turn_angle": 0,
+            "curvature": 0.1,
+            "motion_shape": "pulse",
+            "body_level": "low",
+            "repeat": 1
+        },
+        {
+            "time": 135.0,
+            "action": "sharp_turn",
+            "source": {
+                "energy": 0.1921,
+                "brightness": 2883.37,
+                "energy_change": -0.0327,
+                "movement_quality": "strong",
+                "genre": "jazz"
+            },
+            "speed": 1.0,
+            "amplitude": 0.8,
+            "duration": 1.5,
+            "direction": "rotate",
+            "turn_angle": 90,
+            "curvature": 0.0,
+            "motion_shape": "sharp_rotation",
+            "body_level": "medium",
+            "repeat": 1
+        },
+        {
+            "time": 141.0,
+            "action": "pause",
+            "source": {
+                "energy": 0.016,
+                "brightness": 1691.52,
+                "energy_change": -0.0913,
+                "movement_quality": "still",
+                "genre": "jazz"
+            },
+            "speed": 0.0,
+            "amplitude": 0.0,
+            "duration": 2.0,
+            "direction": "none",
+            "turn_angle": 0,
+            "curvature": 0.0,
+            "motion_shape": "pause",
+            "body_level": "medium",
+            "repeat": 1
+        }
+    ]
+}

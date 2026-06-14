@@ -1,0 +1,295 @@
+{
+    "song_name": "king_and_concubine.mp3",
+    "duration": 231.04,
+    "predicted_genre": "contemporary",
+    "motion_cooldown": 6.0,
+    "num_motion_events": 26,
+    "motion_timeline": [
+        {
+            "time": 3.0,
+            "action": "hold",
+            "source": {
+                "energy": 0.032,
+                "brightness": 788.54,
+                "energy_change": 0.0083,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 9.0,
+            "action": "pause",
+            "source": {
+                "energy": 0.0241,
+                "brightness": 651.2,
+                "energy_change": -0.0005,
+                "movement_quality": "still",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 15.0,
+            "action": "hold",
+            "source": {
+                "energy": 0.0314,
+                "brightness": 674.74,
+                "energy_change": -0.0252,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 21.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1343,
+                "brightness": 1449.89,
+                "energy_change": 0.0636,
+                "movement_quality": "flowing",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 29.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0749,
+                "brightness": 1577.32,
+                "energy_change": -0.0168,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 35.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1112,
+                "brightness": 2407.12,
+                "energy_change": 0.0502,
+                "movement_quality": "flowing",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 42.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0747,
+                "brightness": 2274.34,
+                "energy_change": -0.0406,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 48.0,
+            "action": "expand_slowly",
+            "source": {
+                "energy": 0.1532,
+                "brightness": 2547.15,
+                "energy_change": 0.0964,
+                "movement_quality": "strong",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 54.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.0968,
+                "brightness": 1422.94,
+                "energy_change": -0.0323,
+                "movement_quality": "flowing",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 60.0,
+            "action": "contract_slowly",
+            "source": {
+                "energy": 0.1967,
+                "brightness": 1973.98,
+                "energy_change": -0.0824,
+                "movement_quality": "strong",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 66.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1365,
+                "brightness": 1173.54,
+                "energy_change": -0.031,
+                "movement_quality": "flowing",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 72.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0749,
+                "brightness": 861.97,
+                "energy_change": -0.0736,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 78.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.2177,
+                "brightness": 2114.45,
+                "energy_change": 0.0246,
+                "movement_quality": "strong",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 96.0,
+            "action": "expand_slowly",
+            "source": {
+                "energy": 0.3054,
+                "brightness": 1658.27,
+                "energy_change": 0.1168,
+                "movement_quality": "strong",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 102.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.2095,
+                "brightness": 1124.51,
+                "energy_change": -0.0112,
+                "movement_quality": "strong",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 114.0,
+            "action": "expand_slowly",
+            "source": {
+                "energy": 0.3224,
+                "brightness": 1257.35,
+                "energy_change": 0.1523,
+                "movement_quality": "strong",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 120.0,
+            "action": "large_flowing_arc",
+            "source": {
+                "energy": 0.2913,
+                "brightness": 1306.52,
+                "energy_change": 0.0216,
+                "movement_quality": "strong",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 129.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.2347,
+                "brightness": 1132.08,
+                "energy_change": -0.0164,
+                "movement_quality": "strong",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 135.0,
+            "action": "large_flowing_arc",
+            "source": {
+                "energy": 0.3199,
+                "brightness": 2149.1,
+                "energy_change": -0.0247,
+                "movement_quality": "strong",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 190.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.2344,
+                "brightness": 1270.12,
+                "energy_change": -0.0704,
+                "movement_quality": "strong",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 196.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0533,
+                "brightness": 615.51,
+                "energy_change": -0.0153,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 202.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1596,
+                "brightness": 2195.38,
+                "energy_change": -0.0206,
+                "movement_quality": "strong",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 209.0,
+            "action": "slow_sway",
+            "source": {
+                "energy": 0.0787,
+                "brightness": 2039.08,
+                "energy_change": -0.0652,
+                "movement_quality": "smooth",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 215.0,
+            "action": "flowing_arc",
+            "source": {
+                "energy": 0.1447,
+                "brightness": 2418.69,
+                "energy_change": 0.0766,
+                "movement_quality": "flowing",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 222.0,
+            "action": "pause",
+            "source": {
+                "energy": 0.0278,
+                "brightness": 1123.77,
+                "energy_change": -0.0654,
+                "movement_quality": "still",
+                "genre": "contemporary"
+            }
+        },
+        {
+            "time": 229.0,
+            "action": "end_pose",
+            "source": {
+                "energy": 0.001,
+                "brightness": 1953.04,
+                "energy_change": -0.0041,
+                "movement_quality": "still",
+                "genre": "contemporary"
+            }
+        }
+    ]
+}
