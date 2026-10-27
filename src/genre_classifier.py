@@ -36,7 +36,7 @@ def classify_genre(features):
 
 
 def save_genre_result(genre_data, output_folder):
-    output_folder.mkdir(exist_ok=True)
+    output_folder.mkdir(parents=True, exist_ok=True)
 
     song_stem = genre_data["song_name"].replace(".mp3", "")
     output_file = output_folder / f"{song_stem}_genre.json"

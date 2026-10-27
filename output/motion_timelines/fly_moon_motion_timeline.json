@@ -1,262 +1,731 @@
 {
-    "song_name": "fly_moon.mp3",
-    "duration": 147.24,
-    "predicted_genre": "jazz",
-    "motion_cooldown": 6.0,
-    "num_motion_events": 23,
-    "motion_timeline": [
-        {
-            "time": 3.0,
-            "action": "pause",
-            "source": {
-                "energy": 0.0087,
-                "brightness": 2122.1,
-                "energy_change": -0.0016,
-                "movement_quality": "still",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 9.0,
-            "action": "flowing_arc",
-            "source": {
-                "energy": 0.0933,
-                "brightness": 2559.12,
-                "energy_change": -0.0394,
-                "movement_quality": "flowing",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 15.0,
-            "action": "slow_sway",
-            "source": {
-                "energy": 0.052,
-                "brightness": 1566.79,
-                "energy_change": -0.0364,
-                "movement_quality": "smooth",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 21.0,
-            "action": "flowing_arc",
-            "source": {
-                "energy": 0.0819,
-                "brightness": 1563.71,
-                "energy_change": 0.0316,
-                "movement_quality": "flowing",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 27.0,
-            "action": "expand_movement",
-            "source": {
-                "energy": 0.2008,
-                "brightness": 1663.44,
-                "energy_change": 0.1334,
-                "movement_quality": "strong",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 33.0,
-            "action": "flowing_arc",
-            "source": {
-                "energy": 0.1007,
-                "brightness": 1284.13,
-                "energy_change": -0.0003,
-                "movement_quality": "flowing",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 40.0,
-            "action": "strong_pulse",
-            "source": {
-                "energy": 0.1706,
-                "brightness": 2454.26,
-                "energy_change": 0.0777,
-                "movement_quality": "strong",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 46.0,
-            "action": "flowing_arc",
-            "source": {
-                "energy": 0.1166,
-                "brightness": 1413.8,
-                "energy_change": -0.0252,
-                "movement_quality": "flowing",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 55.0,
-            "action": "hold",
-            "source": {
-                "energy": 0.0468,
-                "brightness": 1214.23,
-                "energy_change": -0.0651,
-                "movement_quality": "smooth",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 61.0,
-            "action": "slow_sway",
-            "source": {
-                "energy": 0.079,
-                "brightness": 1545.54,
-                "energy_change": -0.0082,
-                "movement_quality": "smooth",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 67.0,
-            "action": "flowing_arc",
-            "source": {
-                "energy": 0.1252,
-                "brightness": 1668.32,
-                "energy_change": 0.0373,
-                "movement_quality": "flowing",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 74.0,
-            "action": "sharp_turn",
-            "source": {
-                "energy": 0.1332,
-                "brightness": 2744.15,
-                "energy_change": 0.0146,
-                "movement_quality": "flowing",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 80.0,
-            "action": "slow_sway",
-            "source": {
-                "energy": 0.0747,
-                "brightness": 1761.1,
-                "energy_change": 0.0063,
-                "movement_quality": "smooth",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 86.0,
-            "action": "flowing_arc",
-            "source": {
-                "energy": 0.0887,
-                "brightness": 1152.02,
-                "energy_change": 0.0398,
-                "movement_quality": "flowing",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 92.0,
-            "action": "slow_sway",
-            "source": {
-                "energy": 0.056,
-                "brightness": 1314.85,
-                "energy_change": -0.0073,
-                "movement_quality": "smooth",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 99.0,
-            "action": "sharp_turn",
-            "source": {
-                "energy": 0.1217,
-                "brightness": 2918.01,
-                "energy_change": 0.0631,
-                "movement_quality": "flowing",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 105.0,
-            "action": "flowing_arc",
-            "source": {
-                "energy": 0.1383,
-                "brightness": 2241.96,
-                "energy_change": -0.0153,
-                "movement_quality": "flowing",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 111.0,
-            "action": "slow_sway",
-            "source": {
-                "energy": 0.0599,
-                "brightness": 1687.02,
-                "energy_change": -0.0639,
-                "movement_quality": "smooth",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 117.0,
-            "action": "flowing_arc",
-            "source": {
-                "energy": 0.0918,
-                "brightness": 1855.02,
-                "energy_change": -0.0525,
-                "movement_quality": "flowing",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 123.0,
-            "action": "sharp_turn",
-            "source": {
-                "energy": 0.1773,
-                "brightness": 2722.09,
-                "energy_change": 0.0695,
-                "movement_quality": "strong",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 129.0,
-            "action": "strong_pulse",
-            "source": {
-                "energy": 0.2046,
-                "brightness": 2478.16,
-                "energy_change": 0.0085,
-                "movement_quality": "strong",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 135.0,
-            "action": "sharp_turn",
-            "source": {
-                "energy": 0.1921,
-                "brightness": 2883.37,
-                "energy_change": -0.0327,
-                "movement_quality": "strong",
-                "genre": "jazz"
-            }
-        },
-        {
-            "time": 141.0,
-            "action": "pause",
-            "source": {
-                "energy": 0.016,
-                "brightness": 1691.52,
-                "energy_change": -0.0913,
-                "movement_quality": "still",
-                "genre": "jazz"
-            }
-        }
-    ]
+  "song_name": "fly_moon.mp3",
+  "duration": 147.24,
+  "predicted_genre": "jazz",
+  "pre_beat_stop": 0.22,
+  "boundary": {
+    "x_min": -2.0,
+    "x_max": 2.0,
+    "y_min": -2.0,
+    "y_max": 2.0
+  },
+  "num_detected_beats": 295,
+  "num_strong_beats": 51,
+  "num_motion_events": 51,
+  "motion_timeline": [
+    {
+      "time": 1.858,
+      "end_time": 2.59,
+      "duration": 0.732,
+      "beat_strength": 0.8195,
+      "action": "rotation",
+      "source": {
+        "energy": 0.0104,
+        "brightness": 1932.41,
+        "energy_change": 0.0018,
+        "movement_quality": "still",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 2.81,
+      "end_time": 5.515,
+      "duration": 2.705,
+      "beat_strength": 0.8681,
+      "action": "rotation",
+      "source": {
+        "energy": 0.0087,
+        "brightness": 2122.1,
+        "energy_change": -0.0016,
+        "movement_quality": "still",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 5.735,
+      "end_time": 6.978,
+      "duration": 1.243,
+      "beat_strength": 0.9451,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.0157,
+        "brightness": 2026.79,
+        "energy_change": 0.0055,
+        "movement_quality": "still",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 7.198,
+      "end_time": 8.998,
+      "duration": 1.8,
+      "beat_strength": 0.761,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.0186,
+        "brightness": 1599.54,
+        "energy_change": 0.0028,
+        "movement_quality": "still",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 9.218,
+      "end_time": 10.972,
+      "duration": 1.754,
+      "beat_strength": 0.4374,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0933,
+        "brightness": 2559.12,
+        "energy_change": -0.0394,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 11.192,
+      "end_time": 12.481,
+      "duration": 1.289,
+      "beat_strength": 0.6585,
+      "action": "rotation",
+      "source": {
+        "energy": 0.1099,
+        "brightness": 1953.24,
+        "energy_change": 0.0283,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 12.701,
+      "end_time": 15.453,
+      "duration": 2.752,
+      "beat_strength": 0.3705,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.089,
+        "brightness": 2221.84,
+        "energy_change": -0.038,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 15.673,
+      "end_time": 16.452,
+      "duration": 0.779,
+      "beat_strength": 0.7303,
+      "action": "rotation",
+      "source": {
+        "energy": 0.0841,
+        "brightness": 1894.24,
+        "energy_change": 0.0321,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 16.672,
+      "end_time": 18.449,
+      "duration": 1.777,
+      "beat_strength": 0.5831,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0605,
+        "brightness": 2668.45,
+        "energy_change": -0.0236,
+        "movement_quality": "smooth",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 18.669,
+      "end_time": 20.399,
+      "duration": 1.73,
+      "beat_strength": 0.3241,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1088,
+        "brightness": 1447.0,
+        "energy_change": 0.0327,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 20.619,
+      "end_time": 23.395,
+      "duration": 2.776,
+      "beat_strength": 0.6277,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0819,
+        "brightness": 1563.71,
+        "energy_change": 0.0316,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 23.615,
+      "end_time": 25.392,
+      "duration": 1.777,
+      "beat_strength": 0.6622,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.1311,
+        "brightness": 2452.43,
+        "energy_change": 0.074,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 25.612,
+      "end_time": 26.39,
+      "duration": 0.778,
+      "beat_strength": 0.6242,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0674,
+        "brightness": 1025.01,
+        "energy_change": 0.0099,
+        "movement_quality": "smooth",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 26.61,
+      "end_time": 29.409,
+      "duration": 2.799,
+      "beat_strength": 0.7928,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.2008,
+        "brightness": 1663.44,
+        "energy_change": 0.1334,
+        "movement_quality": "strong",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 29.629,
+      "end_time": 31.429,
+      "duration": 1.8,
+      "beat_strength": 0.5895,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0736,
+        "brightness": 1151.95,
+        "energy_change": -0.0002,
+        "movement_quality": "smooth",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 31.649,
+      "end_time": 34.819,
+      "duration": 3.17,
+      "beat_strength": 0.8099,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.101,
+        "brightness": 1342.84,
+        "energy_change": -0.035,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 35.039,
+      "end_time": 37.42,
+      "duration": 2.381,
+      "beat_strength": 0.6371,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.1106,
+        "brightness": 2022.83,
+        "energy_change": 0.048,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 37.64,
+      "end_time": 39.44,
+      "duration": 1.8,
+      "beat_strength": 0.9044,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0556,
+        "brightness": 1065.38,
+        "energy_change": 0.0079,
+        "movement_quality": "smooth",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 39.66,
+      "end_time": 43.364,
+      "duration": 3.704,
+      "beat_strength": 0.5465,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1706,
+        "brightness": 2454.26,
+        "energy_change": 0.0777,
+        "movement_quality": "strong",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 43.584,
+      "end_time": 47.358,
+      "duration": 3.774,
+      "beat_strength": 0.3885,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.122,
+        "brightness": 2238.59,
+        "energy_change": 0.0134,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 47.578,
+      "end_time": 50.353,
+      "duration": 2.775,
+      "beat_strength": 0.3033,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1423,
+        "brightness": 1808.44,
+        "energy_change": 0.0858,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 50.573,
+      "end_time": 55.461,
+      "duration": 4.888,
+      "beat_strength": 0.2858,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.1394,
+        "brightness": 1756.32,
+        "energy_change": 0.0223,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 55.681,
+      "end_time": 58.48,
+      "duration": 2.799,
+      "beat_strength": 0.5878,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1751,
+        "brightness": 2077.49,
+        "energy_change": 0.1283,
+        "movement_quality": "strong",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 58.7,
+      "end_time": 62.52,
+      "duration": 3.82,
+      "beat_strength": 0.4609,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1087,
+        "brightness": 3261.61,
+        "energy_change": 0.0285,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 62.74,
+      "end_time": 65.562,
+      "duration": 2.822,
+      "beat_strength": 0.4004,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1281,
+        "brightness": 1588.49,
+        "energy_change": 0.0429,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 65.782,
+      "end_time": 69.556,
+      "duration": 3.774,
+      "beat_strength": 0.3031,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0879,
+        "brightness": 1372.48,
+        "energy_change": 0.006,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 69.776,
+      "end_time": 75.5,
+      "duration": 5.724,
+      "beat_strength": 0.2865,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.1231,
+        "brightness": 2577.55,
+        "energy_change": 0.0522,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 75.72,
+      "end_time": 78.496,
+      "duration": 2.776,
+      "beat_strength": 0.6006,
+      "action": "rotation",
+      "source": {
+        "energy": 0.1436,
+        "brightness": 2798.98,
+        "energy_change": 0.0605,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 78.716,
+      "end_time": 81.537,
+      "duration": 2.821,
+      "beat_strength": 0.5994,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0684,
+        "brightness": 1968.99,
+        "energy_change": 0.0059,
+        "movement_quality": "smooth",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 81.757,
+      "end_time": 83.558,
+      "duration": 1.801,
+      "beat_strength": 0.4481,
+      "action": "rotation",
+      "source": {
+        "energy": 0.0482,
+        "brightness": 1333.48,
+        "energy_change": 0.0002,
+        "movement_quality": "smooth",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 83.778,
+      "end_time": 84.556,
+      "duration": 0.778,
+      "beat_strength": 0.4054,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0465,
+        "brightness": 1496.22,
+        "energy_change": -0.0055,
+        "movement_quality": "smooth",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 84.776,
+      "end_time": 86.553,
+      "duration": 1.777,
+      "beat_strength": 0.4939,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.049,
+        "brightness": 1769.82,
+        "energy_change": 0.0025,
+        "movement_quality": "smooth",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 86.773,
+      "end_time": 88.573,
+      "duration": 1.8,
+      "beat_strength": 0.6759,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0451,
+        "brightness": 1430.49,
+        "energy_change": -0.0436,
+        "movement_quality": "smooth",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 88.793,
+      "end_time": 90.57,
+      "duration": 1.777,
+      "beat_strength": 0.7194,
+      "action": "rotation",
+      "source": {
+        "energy": 0.0516,
+        "brightness": 1419.09,
+        "energy_change": 0.0006,
+        "movement_quality": "smooth",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 90.79,
+      "end_time": 92.637,
+      "duration": 1.847,
+      "beat_strength": 0.7667,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0633,
+        "brightness": 1323.54,
+        "energy_change": 0.0231,
+        "movement_quality": "smooth",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 92.857,
+      "end_time": 95.678,
+      "duration": 2.821,
+      "beat_strength": 0.666,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.0464,
+        "brightness": 1535.84,
+        "energy_change": -0.0097,
+        "movement_quality": "smooth",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 95.898,
+      "end_time": 97.699,
+      "duration": 1.801,
+      "beat_strength": 0.6322,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.0839,
+        "brightness": 1302.66,
+        "energy_change": -0.0168,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 97.919,
+      "end_time": 98.651,
+      "duration": 0.732,
+      "beat_strength": 0.6617,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0586,
+        "brightness": 1855.76,
+        "energy_change": 0.004,
+        "movement_quality": "smooth",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 98.871,
+      "end_time": 101.646,
+      "duration": 2.775,
+      "beat_strength": 0.3519,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1217,
+        "brightness": 2918.01,
+        "energy_change": 0.0631,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 101.866,
+      "end_time": 102.644,
+      "duration": 0.778,
+      "beat_strength": 0.3379,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1578,
+        "brightness": 1848.81,
+        "energy_change": 0.1115,
+        "movement_quality": "strong",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 102.864,
+      "end_time": 107.683,
+      "duration": 4.819,
+      "beat_strength": 0.5369,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1515,
+        "brightness": 3309.36,
+        "energy_change": -0.0063,
+        "movement_quality": "strong",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 107.903,
+      "end_time": 108.635,
+      "duration": 0.732,
+      "beat_strength": 0.4033,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.1219,
+        "brightness": 3349.24,
+        "energy_change": 0.0236,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 108.855,
+      "end_time": 112.188,
+      "duration": 3.333,
+      "beat_strength": 0.3108,
+      "action": "rotation",
+      "source": {
+        "energy": 0.1653,
+        "brightness": 2305.2,
+        "energy_change": 0.0434,
+        "movement_quality": "strong",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 112.408,
+      "end_time": 118.179,
+      "duration": 5.771,
+      "beat_strength": 0.3715,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1032,
+        "brightness": 2003.98,
+        "energy_change": 0.0434,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 118.399,
+      "end_time": 120.222,
+      "duration": 1.823,
+      "beat_strength": 0.4756,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.156,
+        "brightness": 1656.19,
+        "energy_change": 0.0642,
+        "movement_quality": "strong",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 120.442,
+      "end_time": 128.999,
+      "duration": 8.557,
+      "beat_strength": 0.3621,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1656,
+        "brightness": 1798.69,
+        "energy_change": 0.0643,
+        "movement_quality": "strong",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 129.219,
+      "end_time": 132.528,
+      "duration": 3.309,
+      "beat_strength": 0.3187,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.2046,
+        "brightness": 2478.16,
+        "energy_change": 0.0085,
+        "movement_quality": "strong",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 132.748,
+      "end_time": 136.987,
+      "duration": 4.239,
+      "beat_strength": 0.282,
+      "action": "rotation",
+      "source": {
+        "energy": 0.2189,
+        "brightness": 2790.0,
+        "energy_change": 0.0209,
+        "movement_quality": "strong",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 137.207,
+      "end_time": 140.238,
+      "duration": 3.031,
+      "beat_strength": 0.5906,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1706,
+        "brightness": 1990.1,
+        "energy_change": 0.0518,
+        "movement_quality": "strong",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 140.458,
+      "end_time": 142.838,
+      "duration": 2.38,
+      "beat_strength": 0.2866,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1073,
+        "brightness": 2049.15,
+        "energy_change": -0.0786,
+        "movement_quality": "flowing",
+        "genre": "jazz"
+      }
+    },
+    {
+      "time": 143.058,
+      "end_time": 147.02,
+      "duration": 3.962,
+      "beat_strength": 1.0,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0333,
+        "brightness": 2169.76,
+        "energy_change": 0.0158,
+        "movement_quality": "smooth",
+        "genre": "jazz"
+      }
+    }
+  ]
 }

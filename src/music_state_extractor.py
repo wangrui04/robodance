@@ -8,8 +8,23 @@ WINDOW_SIZE = 1.0
 def generate_music_state(audio_file, output_folder):
     output_folder.mkdir(exist_ok=True)
 
-    y, sr = librosa.load(audio_file)
+    y, sr = librosa.load(audio_file, sr=22050)
     duration = librosa.get_duration(y=y, sr=sr)
+    onset_envelope = librosa.onset.onset_strength(y=y, sr=sr)
+    _, beat_frames = librosa.beat.beat_track(
+        y=y,
+        sr=sr,
+        onset_envelope=onset_envelope,
+        trim=False
+    )
+    beat_times = librosa.frames_to_time(beat_frames, sr=sr)
+    beat_strengths = onset_envelope[beat_frames] if len(beat_frames) else []
+    max_strength = float(np.max(beat_strengths)) if len(beat_strengths) else 0.0
+    threshold = (
+        float(np.percentile(beat_strengths, 60))
+        if len(beat_strengths)
+        else 0.0
+    )
 
     states = []
     num_windows = int(duration // WINDOW_SIZE)
@@ -72,6 +87,18 @@ def generate_music_state(audio_file, output_folder):
         "song_name": audio_file.name,
         "duration": round(duration, 2),
         "window_size": WINDOW_SIZE,
+        "beat_strength_threshold": round(threshold, 4),
+        "beats": [
+            {
+                "time": round(float(time), 3),
+                "strength": round(
+                    float(strength / max_strength) if max_strength else 0.0,
+                    4
+                ),
+                "is_strong": bool(strength >= threshold),
+            }
+            for time, strength in zip(beat_times, beat_strengths)
+        ],
         "states": states
     }
 

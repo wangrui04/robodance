@@ -1,317 +1,1277 @@
 {
-    "song_name": "16Shots.mp3",
-    "duration": 223.45,
-    "predicted_genre": "hiphop",
-    "motion_cooldown": 6.0,
-    "num_motion_events": 28,
-    "motion_timeline": [
-        {
-            "time": 3.0,
-            "action": "flowing_arc",
-            "source": {
-                "energy": 0.1089,
-                "brightness": 3365.93,
-                "energy_change": 0.0184,
-                "movement_quality": "flowing",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 10.0,
-            "action": "sharp_turn",
-            "source": {
-                "energy": 0.1296,
-                "brightness": 2597.33,
-                "energy_change": 0.0262,
-                "movement_quality": "flowing",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 16.0,
-            "action": "flowing_arc",
-            "source": {
-                "energy": 0.1163,
-                "brightness": 2755.43,
-                "energy_change": -0.002,
-                "movement_quality": "flowing",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 22.0,
-            "action": "contract_movement",
-            "source": {
-                "energy": 0.0414,
-                "brightness": 1415.15,
-                "energy_change": -0.0847,
-                "movement_quality": "smooth",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 28.0,
-            "action": "strong_pulse",
-            "source": {
-                "energy": 0.162,
-                "brightness": 1931.1,
-                "energy_change": 0.0053,
-                "movement_quality": "strong",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 47.0,
-            "action": "slow_sway",
-            "source": {
-                "energy": 0.0708,
-                "brightness": 2406.54,
-                "energy_change": -0.083,
-                "movement_quality": "smooth",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 53.0,
-            "action": "flowing_arc",
-            "source": {
-                "energy": 0.0966,
-                "brightness": 2289.58,
-                "energy_change": -0.0134,
-                "movement_quality": "flowing",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 59.0,
-            "action": "expand_movement",
-            "source": {
-                "energy": 0.1502,
-                "brightness": 2636.06,
-                "energy_change": 0.0918,
-                "movement_quality": "strong",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 65.0,
-            "action": "strong_pulse",
-            "source": {
-                "energy": 0.1716,
-                "brightness": 2153.71,
-                "energy_change": -0.0034,
-                "movement_quality": "strong",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 71.0,
-            "action": "sharp_turn",
-            "source": {
-                "energy": 0.1768,
-                "brightness": 2563.34,
-                "energy_change": 0.0044,
-                "movement_quality": "strong",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 78.0,
-            "action": "strong_pulse",
-            "source": {
-                "energy": 0.1723,
-                "brightness": 2493.1,
-                "energy_change": -0.0147,
-                "movement_quality": "strong",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 84.0,
-            "action": "flowing_arc",
-            "source": {
-                "energy": 0.1407,
-                "brightness": 1939.02,
-                "energy_change": 0.0345,
-                "movement_quality": "flowing",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 90.0,
-            "action": "strong_pulse",
-            "source": {
-                "energy": 0.1698,
-                "brightness": 900.96,
-                "energy_change": 0.0513,
-                "movement_quality": "strong",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 107.0,
-            "action": "flowing_arc",
-            "source": {
-                "energy": 0.1237,
-                "brightness": 1535.92,
-                "energy_change": -0.048,
-                "movement_quality": "flowing",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 113.0,
-            "action": "slow_sway",
-            "source": {
-                "energy": 0.0508,
-                "brightness": 2820.17,
-                "energy_change": -0.0421,
-                "movement_quality": "smooth",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 119.0,
-            "action": "flowing_arc",
-            "source": {
-                "energy": 0.1302,
-                "brightness": 2467.28,
-                "energy_change": 0.0086,
-                "movement_quality": "flowing",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 125.0,
-            "action": "sharp_turn",
-            "source": {
-                "energy": 0.1755,
-                "brightness": 2549.79,
-                "energy_change": 0.0076,
-                "movement_quality": "strong",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 134.0,
-            "action": "strong_pulse",
-            "source": {
-                "energy": 0.1719,
-                "brightness": 2392.35,
-                "energy_change": -0.0027,
-                "movement_quality": "strong",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 140.0,
-            "action": "sharp_turn",
-            "source": {
-                "energy": 0.1842,
-                "brightness": 2725.86,
-                "energy_change": 0.0139,
-                "movement_quality": "strong",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 146.0,
-            "action": "flowing_arc",
-            "source": {
-                "energy": 0.1088,
-                "brightness": 2463.94,
-                "energy_change": -0.0064,
-                "movement_quality": "flowing",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 168.0,
-            "action": "strong_pulse",
-            "source": {
-                "energy": 0.1695,
-                "brightness": 1641.24,
-                "energy_change": 0.0355,
-                "movement_quality": "strong",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 174.0,
-            "action": "slow_sway",
-            "source": {
-                "energy": 0.0642,
-                "brightness": 1827.17,
-                "energy_change": -0.0185,
-                "movement_quality": "smooth",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 186.0,
-            "action": "flowing_arc",
-            "source": {
-                "energy": 0.0859,
-                "brightness": 1940.09,
-                "energy_change": 0.013,
-                "movement_quality": "flowing",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 192.0,
-            "action": "slow_sway",
-            "source": {
-                "energy": 0.06,
-                "brightness": 3355.56,
-                "energy_change": -0.0182,
-                "movement_quality": "smooth",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 199.0,
-            "action": "end_pose",
-            "source": {
-                "energy": 0.0024,
-                "brightness": 1661.87,
-                "energy_change": -0.0621,
-                "movement_quality": "still",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 205.0,
-            "action": "sharp_turn",
-            "source": {
-                "energy": 0.1786,
-                "brightness": 2653.37,
-                "energy_change": 0.002,
-                "movement_quality": "strong",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 212.0,
-            "action": "strong_pulse",
-            "source": {
-                "energy": 0.1729,
-                "brightness": 2362.13,
-                "energy_change": -0.0009,
-                "movement_quality": "strong",
-                "genre": "hiphop"
-            }
-        },
-        {
-            "time": 218.0,
-            "action": "sharp_turn",
-            "source": {
-                "energy": 0.1838,
-                "brightness": 2710.31,
-                "energy_change": 0.011,
-                "movement_quality": "strong",
-                "genre": "hiphop"
-            }
-        }
-    ]
+  "song_name": "16Shots.mp3",
+  "duration": 223.45,
+  "predicted_genre": "hiphop",
+  "pre_beat_stop": 0.22,
+  "boundary": {
+    "x_min": -2.0,
+    "x_max": 2.0,
+    "y_min": -2.0,
+    "y_max": 2.0
+  },
+  "num_detected_beats": 483,
+  "num_strong_beats": 90,
+  "num_motion_events": 90,
+  "motion_timeline": [
+    {
+      "time": 0.58,
+      "end_time": 5.492,
+      "duration": 4.912,
+      "beat_strength": 0.6948,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.106,
+        "brightness": 2629.01,
+        "energy_change": 0.0642,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 5.712,
+      "end_time": 7.35,
+      "duration": 1.638,
+      "beat_strength": 0.2715,
+      "action": "rotation",
+      "source": {
+        "energy": 0.1133,
+        "brightness": 2463.79,
+        "energy_change": 0.0011,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 7.57,
+      "end_time": 17.915,
+      "duration": 10.345,
+      "beat_strength": 0.3157,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1257,
+        "brightness": 2446.51,
+        "energy_change": 0.0305,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 18.135,
+      "end_time": 20.748,
+      "duration": 2.613,
+      "beat_strength": 0.3471,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1565,
+        "brightness": 2787.21,
+        "energy_change": 0.0657,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 20.968,
+      "end_time": 26.901,
+      "duration": 5.933,
+      "beat_strength": 0.4392,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1261,
+        "brightness": 2147.95,
+        "energy_change": -0.0554,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 27.121,
+      "end_time": 27.853,
+      "duration": 0.732,
+      "beat_strength": 0.4193,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1567,
+        "brightness": 1226.44,
+        "energy_change": 0.0245,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 28.073,
+      "end_time": 30.105,
+      "duration": 2.032,
+      "beat_strength": 0.3353,
+      "action": "rotation",
+      "source": {
+        "energy": 0.162,
+        "brightness": 1931.1,
+        "energy_change": 0.0053,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 30.325,
+      "end_time": 31.963,
+      "duration": 1.638,
+      "beat_strength": 0.3497,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1567,
+        "brightness": 1280.67,
+        "energy_change": 0.0023,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 32.183,
+      "end_time": 34.494,
+      "duration": 2.311,
+      "beat_strength": 0.6832,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1537,
+        "brightness": 935.98,
+        "energy_change": -0.0075,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 34.714,
+      "end_time": 37.327,
+      "duration": 2.613,
+      "beat_strength": 0.5284,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1655,
+        "brightness": 1536.11,
+        "energy_change": 0.0016,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 37.547,
+      "end_time": 38.279,
+      "duration": 0.732,
+      "beat_strength": 0.4009,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1712,
+        "brightness": 1560.06,
+        "energy_change": -0.0031,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 38.499,
+      "end_time": 40.16,
+      "duration": 1.661,
+      "beat_strength": 0.392,
+      "action": "rotation",
+      "source": {
+        "energy": 0.1712,
+        "brightness": 1560.06,
+        "energy_change": -0.0031,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 40.38,
+      "end_time": 41.901,
+      "duration": 1.521,
+      "beat_strength": 0.5513,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1793,
+        "brightness": 1694.25,
+        "energy_change": 0.007,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 42.121,
+      "end_time": 45.221,
+      "duration": 3.1,
+      "beat_strength": 0.5095,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1726,
+        "brightness": 1746.62,
+        "energy_change": 0.0005,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 45.441,
+      "end_time": 46.173,
+      "duration": 0.732,
+      "beat_strength": 0.3073,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1811,
+        "brightness": 1764.22,
+        "energy_change": -0.0012,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 46.393,
+      "end_time": 48.078,
+      "duration": 1.685,
+      "beat_strength": 0.5418,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1537,
+        "brightness": 1893.81,
+        "energy_change": -0.0274,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 48.298,
+      "end_time": 49.958,
+      "duration": 1.66,
+      "beat_strength": 0.2566,
+      "action": "rotation",
+      "source": {
+        "energy": 0.0803,
+        "brightness": 1874.84,
+        "energy_change": 0.0095,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 50.178,
+      "end_time": 52.814,
+      "duration": 2.636,
+      "beat_strength": 0.3181,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0684,
+        "brightness": 2452.79,
+        "energy_change": -0.0144,
+        "movement_quality": "smooth",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 53.034,
+      "end_time": 57.574,
+      "duration": 4.54,
+      "beat_strength": 0.3086,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.0966,
+        "brightness": 2289.58,
+        "energy_change": -0.0134,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 57.794,
+      "end_time": 60.384,
+      "duration": 2.59,
+      "beat_strength": 0.6683,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0584,
+        "brightness": 2584.99,
+        "energy_change": 0.0048,
+        "movement_quality": "smooth",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 60.604,
+      "end_time": 65.121,
+      "duration": 4.517,
+      "beat_strength": 0.2707,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.175,
+        "brightness": 2853.01,
+        "energy_change": 0.0092,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 65.341,
+      "end_time": 66.073,
+      "duration": 0.732,
+      "beat_strength": 0.4281,
+      "action": "rotation",
+      "source": {
+        "energy": 0.1716,
+        "brightness": 2153.71,
+        "energy_change": -0.0034,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 66.293,
+      "end_time": 69.858,
+      "duration": 3.565,
+      "beat_strength": 0.2811,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1858,
+        "brightness": 2293.67,
+        "energy_change": 0.0142,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 70.078,
+      "end_time": 72.691,
+      "duration": 2.613,
+      "beat_strength": 0.2707,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1724,
+        "brightness": 2435.68,
+        "energy_change": -0.0035,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 72.911,
+      "end_time": 75.059,
+      "duration": 2.148,
+      "beat_strength": 0.3879,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1769,
+        "brightness": 2531.18,
+        "energy_change": 0.0062,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 75.279,
+      "end_time": 76.499,
+      "duration": 1.22,
+      "beat_strength": 0.2736,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1749,
+        "brightness": 2193.59,
+        "energy_change": 0.0115,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 76.719,
+      "end_time": 77.915,
+      "duration": 1.196,
+      "beat_strength": 0.329,
+      "action": "rotation",
+      "source": {
+        "energy": 0.1871,
+        "brightness": 2617.19,
+        "energy_change": 0.0104,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 78.135,
+      "end_time": 80.887,
+      "duration": 2.752,
+      "beat_strength": 0.4244,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1723,
+        "brightness": 2493.1,
+        "energy_change": -0.0147,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 81.107,
+      "end_time": 82.791,
+      "duration": 1.684,
+      "beat_strength": 0.997,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1205,
+        "brightness": 2293.27,
+        "energy_change": 0.043,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 83.011,
+      "end_time": 85.322,
+      "duration": 2.311,
+      "beat_strength": 1.0,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1061,
+        "brightness": 1915.29,
+        "energy_change": 0.0167,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 85.542,
+      "end_time": 86.274,
+      "duration": 0.732,
+      "beat_strength": 0.7357,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.0915,
+        "brightness": 2350.97,
+        "energy_change": -0.0082,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 86.494,
+      "end_time": 90.059,
+      "duration": 3.565,
+      "beat_strength": 0.2995,
+      "action": "rotation",
+      "source": {
+        "energy": 0.0915,
+        "brightness": 2350.97,
+        "energy_change": -0.0082,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 90.279,
+      "end_time": 92.846,
+      "duration": 2.567,
+      "beat_strength": 0.7373,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1698,
+        "brightness": 900.96,
+        "energy_change": 0.0513,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 93.066,
+      "end_time": 95.121,
+      "duration": 2.055,
+      "beat_strength": 0.3398,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1525,
+        "brightness": 1626.39,
+        "energy_change": -0.0071,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 95.341,
+      "end_time": 96.375,
+      "duration": 1.034,
+      "beat_strength": 0.7121,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1621,
+        "brightness": 1053.17,
+        "energy_change": -0.0022,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 96.595,
+      "end_time": 98.604,
+      "duration": 2.009,
+      "beat_strength": 0.5993,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1714,
+        "brightness": 1285.88,
+        "energy_change": 0.0183,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 98.824,
+      "end_time": 100.485,
+      "duration": 1.661,
+      "beat_strength": 0.2559,
+      "action": "rotation",
+      "source": {
+        "energy": 0.1656,
+        "brightness": 1894.6,
+        "energy_change": 0.0002,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 100.705,
+      "end_time": 102.389,
+      "duration": 1.684,
+      "beat_strength": 0.5263,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1724,
+        "brightness": 1798.94,
+        "energy_change": 0.0021,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 102.609,
+      "end_time": 105.059,
+      "duration": 2.45,
+      "beat_strength": 0.4516,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1704,
+        "brightness": 1843.07,
+        "energy_change": 0.0004,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 105.279,
+      "end_time": 106.336,
+      "duration": 1.057,
+      "beat_strength": 0.6799,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1612,
+        "brightness": 1592.96,
+        "energy_change": -0.0163,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 106.556,
+      "end_time": 108.728,
+      "duration": 2.172,
+      "beat_strength": 0.4056,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1237,
+        "brightness": 1535.92,
+        "energy_change": -0.048,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 108.948,
+      "end_time": 111.538,
+      "duration": 2.59,
+      "beat_strength": 0.2633,
+      "action": "rotation",
+      "source": {
+        "energy": 0.1659,
+        "brightness": 1668.85,
+        "energy_change": 0.068,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 111.758,
+      "end_time": 113.744,
+      "duration": 1.986,
+      "beat_strength": 0.6329,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.0929,
+        "brightness": 2482.9,
+        "energy_change": 0.0263,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 113.964,
+      "end_time": 115.648,
+      "duration": 1.684,
+      "beat_strength": 0.5592,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1142,
+        "brightness": 2566.86,
+        "energy_change": 0.0633,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 115.868,
+      "end_time": 117.877,
+      "duration": 2.009,
+      "beat_strength": 0.3703,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1056,
+        "brightness": 2254.66,
+        "energy_change": 0.0018,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 118.097,
+      "end_time": 120.733,
+      "duration": 2.636,
+      "beat_strength": 0.2762,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1217,
+        "brightness": 2521.66,
+        "energy_change": 0.0236,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 120.953,
+      "end_time": 123.542,
+      "duration": 2.589,
+      "beat_strength": 0.4774,
+      "action": "rotation",
+      "source": {
+        "energy": 0.099,
+        "brightness": 2494.66,
+        "energy_change": 0.0058,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 123.762,
+      "end_time": 125.748,
+      "duration": 1.986,
+      "beat_strength": 0.2925,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1679,
+        "brightness": 2937.63,
+        "energy_change": -0.0067,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 125.968,
+      "end_time": 128.581,
+      "duration": 2.613,
+      "beat_strength": 0.3821,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1759,
+        "brightness": 2572.09,
+        "energy_change": 0.0004,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 128.801,
+      "end_time": 130.81,
+      "duration": 2.009,
+      "beat_strength": 0.3926,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1719,
+        "brightness": 2381.59,
+        "energy_change": -0.0044,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 131.03,
+      "end_time": 133.643,
+      "duration": 2.613,
+      "beat_strength": 0.4368,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1796,
+        "brightness": 2517.38,
+        "energy_change": -0.0025,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 133.863,
+      "end_time": 135.849,
+      "duration": 1.986,
+      "beat_strength": 0.298,
+      "action": "rotation",
+      "source": {
+        "energy": 0.1719,
+        "brightness": 2392.35,
+        "energy_change": -0.0027,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 136.069,
+      "end_time": 139.657,
+      "duration": 3.588,
+      "beat_strength": 0.4334,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1769,
+        "brightness": 2576.56,
+        "energy_change": 0.0073,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 139.877,
+      "end_time": 141.073,
+      "duration": 1.196,
+      "beat_strength": 0.3207,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1842,
+        "brightness": 2725.86,
+        "energy_change": 0.0139,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 141.293,
+      "end_time": 143.442,
+      "duration": 2.149,
+      "beat_strength": 0.4258,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1723,
+        "brightness": 2660.3,
+        "energy_change": -0.012,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 143.662,
+      "end_time": 144.394,
+      "duration": 0.732,
+      "beat_strength": 0.387,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.101,
+        "brightness": 2446.86,
+        "energy_change": -0.0169,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 144.614,
+      "end_time": 146.275,
+      "duration": 1.661,
+      "beat_strength": 0.3375,
+      "action": "rotation",
+      "source": {
+        "energy": 0.1151,
+        "brightness": 2481.95,
+        "energy_change": 0.0141,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 146.495,
+      "end_time": 148.179,
+      "duration": 1.684,
+      "beat_strength": 0.6414,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1088,
+        "brightness": 2463.94,
+        "energy_change": -0.0064,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 148.399,
+      "end_time": 150.988,
+      "duration": 2.589,
+      "beat_strength": 0.276,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1087,
+        "brightness": 2455.14,
+        "energy_change": -0.0108,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 151.208,
+      "end_time": 153.728,
+      "duration": 2.52,
+      "beat_strength": 0.5855,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.0734,
+        "brightness": 2901.42,
+        "energy_change": -0.0261,
+        "movement_quality": "smooth",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 153.948,
+      "end_time": 155.121,
+      "duration": 1.173,
+      "beat_strength": 0.2865,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1012,
+        "brightness": 1526.72,
+        "energy_change": -0.0109,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 155.341,
+      "end_time": 157.629,
+      "duration": 2.288,
+      "beat_strength": 0.6878,
+      "action": "rotation",
+      "source": {
+        "energy": 0.1149,
+        "brightness": 1905.45,
+        "energy_change": 0.0137,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 157.849,
+      "end_time": 158.93,
+      "duration": 1.081,
+      "beat_strength": 0.4294,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1281,
+        "brightness": 1945.41,
+        "energy_change": 0.0113,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 159.15,
+      "end_time": 162.691,
+      "duration": 3.541,
+      "beat_strength": 0.2425,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1263,
+        "brightness": 1807.44,
+        "energy_change": -0.0018,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 162.911,
+      "end_time": 163.968,
+      "duration": 1.057,
+      "beat_strength": 0.5355,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1068,
+        "brightness": 2154.36,
+        "energy_change": -0.0353,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 164.188,
+      "end_time": 167.753,
+      "duration": 3.565,
+      "beat_strength": 0.3767,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1192,
+        "brightness": 1990.85,
+        "energy_change": 0.0124,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 167.973,
+      "end_time": 169.007,
+      "duration": 1.034,
+      "beat_strength": 0.3403,
+      "action": "rotation",
+      "source": {
+        "energy": 0.1695,
+        "brightness": 1641.24,
+        "energy_change": 0.0355,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 169.227,
+      "end_time": 170.284,
+      "duration": 1.057,
+      "beat_strength": 0.5461,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1647,
+        "brightness": 1815.3,
+        "energy_change": -0.0048,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 170.504,
+      "end_time": 177.575,
+      "duration": 7.071,
+      "beat_strength": 0.505,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0844,
+        "brightness": 3125.33,
+        "energy_change": -0.0357,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 177.795,
+      "end_time": 178.481,
+      "duration": 0.686,
+      "beat_strength": 0.3249,
+      "action": "rotation",
+      "source": {
+        "energy": 0.0718,
+        "brightness": 2172.25,
+        "energy_change": 0.0149,
+        "movement_quality": "smooth",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 178.701,
+      "end_time": 180.362,
+      "duration": 1.661,
+      "beat_strength": 0.2939,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0507,
+        "brightness": 2543.97,
+        "energy_change": -0.0211,
+        "movement_quality": "smooth",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 180.582,
+      "end_time": 182.126,
+      "duration": 1.544,
+      "beat_strength": 0.2743,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.0746,
+        "brightness": 2384.91,
+        "energy_change": 0.0056,
+        "movement_quality": "smooth",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 182.346,
+      "end_time": 184.797,
+      "duration": 2.451,
+      "beat_strength": 0.3059,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.058,
+        "brightness": 2778.18,
+        "energy_change": -0.0166,
+        "movement_quality": "smooth",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 185.017,
+      "end_time": 185.795,
+      "duration": 0.778,
+      "beat_strength": 0.7527,
+      "action": "rotation",
+      "source": {
+        "energy": 0.0729,
+        "brightness": 1924.06,
+        "energy_change": 0.012,
+        "movement_quality": "smooth",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 186.015,
+      "end_time": 188.001,
+      "duration": 1.986,
+      "beat_strength": 0.4573,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.0859,
+        "brightness": 1940.09,
+        "energy_change": 0.013,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 188.221,
+      "end_time": 189.859,
+      "duration": 1.638,
+      "beat_strength": 0.3003,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0786,
+        "brightness": 2545.44,
+        "energy_change": -0.0067,
+        "movement_quality": "smooth",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 190.079,
+      "end_time": 193.249,
+      "duration": 3.17,
+      "beat_strength": 0.5539,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.0681,
+        "brightness": 3160.54,
+        "energy_change": -0.0054,
+        "movement_quality": "smooth",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 193.469,
+      "end_time": 195.222,
+      "duration": 1.753,
+      "beat_strength": 0.3967,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.073,
+        "brightness": 2976.13,
+        "energy_change": 0.013,
+        "movement_quality": "smooth",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 195.442,
+      "end_time": 196.174,
+      "duration": 0.732,
+      "beat_strength": 0.475,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1246,
+        "brightness": 2450.2,
+        "energy_change": 0.0538,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 196.394,
+      "end_time": 198.078,
+      "duration": 1.684,
+      "beat_strength": 0.4745,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1734,
+        "brightness": 2148.52,
+        "energy_change": 0.0488,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 198.298,
+      "end_time": 199.959,
+      "duration": 1.661,
+      "beat_strength": 0.3284,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.0645,
+        "brightness": 1817.85,
+        "energy_change": -0.1036,
+        "movement_quality": "smooth",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 200.179,
+      "end_time": 204.069,
+      "duration": 3.89,
+      "beat_strength": 0.6656,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1013,
+        "brightness": 2972.54,
+        "energy_change": 0.0989,
+        "movement_quality": "flowing",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 204.289,
+      "end_time": 206.902,
+      "duration": 2.613,
+      "beat_strength": 0.3479,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1767,
+        "brightness": 2583.92,
+        "energy_change": 0.0042,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 207.122,
+      "end_time": 209.108,
+      "duration": 1.986,
+      "beat_strength": 0.4911,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1706,
+        "brightness": 2235.47,
+        "energy_change": -0.0035,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 209.328,
+      "end_time": 210.06,
+      "duration": 0.732,
+      "beat_strength": 0.5213,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1864,
+        "brightness": 2172.5,
+        "energy_change": 0.0001,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 210.28,
+      "end_time": 211.964,
+      "duration": 1.684,
+      "beat_strength": 0.2348,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1796,
+        "brightness": 2696.98,
+        "energy_change": -0.0068,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 212.184,
+      "end_time": 214.17,
+      "duration": 1.986,
+      "beat_strength": 0.34,
+      "action": "rotation",
+      "source": {
+        "energy": 0.1729,
+        "brightness": 2362.13,
+        "energy_change": -0.0009,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 214.39,
+      "end_time": 217.003,
+      "duration": 2.613,
+      "beat_strength": 0.4075,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1733,
+        "brightness": 2436.96,
+        "energy_change": 0.0074,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 217.223,
+      "end_time": 219.859,
+      "duration": 2.636,
+      "beat_strength": 0.2996,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1729,
+        "brightness": 2433.21,
+        "energy_change": 0.0034,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    },
+    {
+      "time": 220.079,
+      "end_time": 223.23,
+      "duration": 3.151,
+      "beat_strength": 0.4491,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1749,
+        "brightness": 2477.65,
+        "energy_change": -0.002,
+        "movement_quality": "strong",
+        "genre": "hiphop"
+      }
+    }
+  ]
 }

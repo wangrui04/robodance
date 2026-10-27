@@ -1,114 +1,252 @@
+
 import json
+from pathlib import Path
 
-MOTION_COOLDOWN = 6.0
+import numpy as np
 
 
-def choose_motion(state, genre=None):
-    energy = state["energy"]
-    energy_change = state["energy_change"]
-    brightness = state["brightness"]
-    movement_quality = state["movement_quality"]
+BOUNDARY = {
+    "x_min": -2.0,
+    "x_max": 2.0,
+    "y_min": -2.0,
+    "y_max": 2.0,
+}
 
-    if energy < 0.005:
-        return "end_pose"
+STYLE_OPTIONS = {
+    "contemporary": [
+        "s_wave", "left_curve", "right_curve",
+        "backward_pulse", "rotation"
+    ],
+    "edm": [
+        "forward_pulse", "rotation", "s_wave",
+        "right_curve", "backward_pulse"
+    ],
+    "pop": [
+        "forward_pulse", "left_curve", "s_wave",
+        "backward_pulse", "right_curve"
+    ],
+    "hiphop": [
+        "backward_pulse", "rotation", "forward_pulse",
+        "s_wave", "left_curve"
+    ],
+    "jazz": [
+        "s_wave", "right_curve", "rotation",
+        "left_curve", "backward_pulse"
+    ],
+    "unknown": [
+        "s_wave", "forward_pulse", "left_curve",
+        "backward_pulse", "rotation", "right_curve"
+    ],
+}
 
-    if movement_quality == "still":
-        return "pause"
 
-    if genre == "contemporary":
-        if energy_change > 0.08:
-            return "expand_slowly"
-        if energy_change < -0.08:
-            return "contract_slowly"
-        if energy > 0.25:
-            return "large_flowing_arc"
-        if movement_quality == "smooth" and energy > 0.05:
-            return "slow_sway"
-        if movement_quality == "smooth":
-            return "hold"
-        return "flowing_arc"
+def state_at_time(states, time):
+    if not states:
+        return {
+            "energy": 0.0,
+            "brightness": 0.0,
+            "energy_change": 0.0,
+            "movement_quality": "still",
+        }
 
-    if movement_quality == "smooth" and energy > 0.05:
-        return "slow_sway"
+    return min(
+        states,
+        key=lambda state: abs(state["time"] - time)
+    )
+
+
+
+def select_accents(beats, strength_threshold, min_movement_gap):
+    if not beats:
+        return []
+
+    # Sort beats chronologically.
+    beats = sorted(beats, key=lambda b: float(b["time"]))
+
+    # Use a relative threshold based on this song,
+    # rather than requiring a fixed absolute strength.
+    strengths = np.array([
+        float(beat["strength"]) for beat in beats
+    ])
+
+    relative_threshold = float(np.percentile(strengths, 60))
+
+    # Keep the user's threshold as an optional upper limit.
+    effective_threshold = min(
+        strength_threshold,
+        relative_threshold
+    )
+
+    candidates = []
+
+    for i, beat in enumerate(beats):
+        strength = float(beat["strength"])
+
+        left = (
+            float(beats[i - 1]["strength"])
+            if i > 0 else -1
+        )
+        right = (
+            float(beats[i + 1]["strength"])
+            if i + 1 < len(beats) else -1
+        )
+
+        if (
+            strength >= effective_threshold
+            and strength >= left
+            and strength >= right
+        ):
+            candidates.append(beat)
+
+    # Select one strong local accent per time window.
+    selected = []
+
+    window_start = 0.0
+    last_time = float(beats[-1]["time"])
+
+    while window_start <= last_time:
+
+        window = [
+            beat for beat in candidates
+            if window_start <= float(beat["time"])
+            < window_start + min_movement_gap
+        ]
+
+        if window:
+            strongest = max(
+                window,
+                key=lambda beat: float(beat["strength"])
+            )
+
+            selected.append(strongest)
+
+        window_start += min_movement_gap
+
+    return selected
+
+
+def choose_motion(state, genre, event_index, previous_action):
+    options = STYLE_OPTIONS.get(
+        genre,
+        STYLE_OPTIONS["unknown"]
+    )
+
+    energy = float(state.get("energy", 0.0))
+    energy_change = float(state.get("energy_change", 0.0))
+    quality = state.get("movement_quality", "flowing")
+
+    if quality == "still" and energy < 0.015:
+        return "rotation"
 
     if energy_change > 0.08:
-        return "expand_movement"
+        preferred = "forward_pulse"
+    elif energy_change < -0.08:
+        preferred = "backward_pulse"
+    elif quality == "smooth":
+        preferred = "s_wave"
+    else:
+        preferred = options[event_index % len(options)]
 
-    if energy_change < -0.08:
-        return "contract_movement"
+    if preferred == previous_action:
+        alternatives = [
+            action for action in options
+            if action != previous_action
+        ]
+        return alternatives[event_index % len(alternatives)]
 
-    if energy > 0.25:
-        return "strong_forward_pulse"
-
-    if brightness > 2500 and energy > 0.12:
-        return "sharp_turn"
-
-    if movement_quality == "smooth":
-        return "hold"
-
-    if movement_quality == "flowing":
-        return "flowing_arc"
-
-    if movement_quality == "strong":
-        return "strong_pulse"
-
-    return "hold"
+    return preferred
 
 
-def generate_motion_timeline(music_data, genre_data, output_folder):
-    output_folder.mkdir(exist_ok=True)
+def generate_motion_timeline(
+    music_data,
+    genre_data,
+    output_folder,
+    strength_threshold=0.65,
+    stop_seconds=0.22,
+    min_movement_gap=1.5,
+):
+    output_folder = Path(output_folder)
+    output_folder.mkdir(parents=True, exist_ok=True)
 
     genre = genre_data["predicted_genre"]
+    duration = float(music_data["duration"])
+    beats = music_data.get("beats", [])
 
-    motion_timeline = []
-    last_motion_time = -MOTION_COOLDOWN
+    selected_beats = select_accents(
+        beats,
+        strength_threshold,
+        min_movement_gap
+    )
+
+    events = []
     previous_action = None
 
-    for state in music_data["states"]:
-        current_time = state["time"]
+    for i, beat in enumerate(selected_beats):
+        start = float(beat["time"])
 
-        if current_time < 3.0:
+        next_start = (
+            float(selected_beats[i + 1]["time"])
+            if i + 1 < len(selected_beats)
+            else duration
+        )
+
+        end = max(
+            start,
+            min(duration, next_start - stop_seconds)
+        )
+
+        if end <= start:
             continue
 
-        action = choose_motion(state, genre)
+        state = state_at_time(
+            music_data.get("states", []),
+            start
+        )
 
-        if action == previous_action:
-            continue
+        action = choose_motion(
+            state,
+            genre,
+            i,
+            previous_action
+        )
 
-        if current_time - last_motion_time < MOTION_COOLDOWN:
-            continue
-
-        motion_event = {
-            "time": current_time,
+        events.append({
+            "time": round(start, 4),
+            "end_time": round(end, 4),
+            "duration": round(end - start, 4),
+            "beat_strength": beat["strength"],
             "action": action,
             "source": {
                 "energy": state["energy"],
                 "brightness": state["brightness"],
                 "energy_change": state["energy_change"],
                 "movement_quality": state["movement_quality"],
-                "genre": genre
-            }
-        }
-
-        motion_timeline.append(motion_event)
+                "genre": genre,
+            },
+        })
 
         previous_action = action
-        last_motion_time = current_time
 
-    song_stem = music_data["song_name"].replace(".mp3", "")
-
-    output_data = {
+    data = {
         "song_name": music_data["song_name"],
-        "duration": music_data["duration"],
+        "duration": duration,
         "predicted_genre": genre,
-        "motion_cooldown": MOTION_COOLDOWN,
-        "num_motion_events": len(motion_timeline),
-        "motion_timeline": motion_timeline
+        "pre_beat_stop": stop_seconds,
+        "boundary": BOUNDARY,
+        "num_detected_beats": len(beats),
+        "num_strong_beats": len(selected_beats),
+        "num_motion_events": len(events),
+        "motion_timeline": events,
     }
 
-    output_file = output_folder / f"{song_stem}_motion_timeline.json"
+    output_file = (
+        output_folder
+        / f"{Path(data['song_name']).stem}_motion_timeline.json"
+    )
 
-    with open(output_file, "w") as f:
-        json.dump(output_data, f, indent=4)
+    output_file.write_text(
+        json.dumps(data, indent=2),
+        encoding="utf-8"
+    )
 
-    return output_data
+    return data

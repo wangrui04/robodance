@@ -162,6 +162,7 @@ def generate_motion_parameters(motion_timeline, output_folder):
             **motion,
             **params
         }
+        parameterized_event["duration"] = motion["duration"]
 
         parameterized_events.append(parameterized_event)
 
@@ -169,6 +170,8 @@ def generate_motion_parameters(motion_timeline, output_folder):
         "song_name": motion_timeline["song_name"],
         "duration": motion_timeline["duration"],
         "predicted_genre": motion_timeline["predicted_genre"],
+        "boundary": motion_timeline["boundary"],
+        "pre_beat_stop": motion_timeline["pre_beat_stop"],
         "num_motion_events": len(parameterized_events),
         "motion_parameters": parameterized_events
     }
