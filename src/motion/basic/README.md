@@ -29,10 +29,11 @@ robodance/
 │   └── basic/                    # Generated outputs
 └── src/
     ├── pipeline.py               # Main RoboDance pipeline
-    └── basic/
-        ├── beat_motion.py        # Beat detection and movement generation
-        ├── pipeline.py           # Basic pipeline entry point
-        └── README.md
+    └── motion/
+        └── basic/
+            ├── beat_motion.py    # Beat detection and movement generation
+            ├── pipeline.py       # Basic pipeline entry point
+            └── README.md
 ```
 
 ## Requirements
@@ -74,7 +75,7 @@ cd C:\Users\wangr\BezzoLab\robodance
 To alternate between forward and backward movement every **2 beats**:
 
 ```powershell
-python src/basic/pipeline.py --beats-per-move 2
+python src/motion/basic/pipeline.py --beats-per-move 2
 ```
 
 This processes all MP3 files in the `music/` folder.
@@ -92,25 +93,25 @@ The following arguments can be configured:
 **Example 1: Reverse every beat**
 
 ```powershell
-python src/basic/pipeline.py --beats-per-move 1
+python src/motion/basic/pipeline.py --beats-per-move 1
 ```
 
 **Example 2: Reverse every 4 beats**
 
 ```powershell
-python src/basic/pipeline.py --beats-per-move 4
+python src/motion/basic/pipeline.py --beats-per-move 4
 ```
 
 **Example 3: Move at a different speed**
 
 ```powershell
-python src/basic/pipeline.py --beats-per-move 2 --speed 0.15
+python src/motion/basic/pipeline.py --beats-per-move 2 --speed 0.15
 ```
 
 **Example 4: Start by moving backward**
 
 ```powershell
-python src/basic/pipeline.py --beats-per-move 3 --start-direction backward
+python src/motion/basic/pipeline.py --beats-per-move 3 --start-direction backward
 ```
 
 ## Generated Outputs

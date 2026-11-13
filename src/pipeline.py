@@ -1,14 +1,14 @@
 
 from pathlib import Path
 
-from feature_extractor import analyze_song
-from genre_classifier import classify_genre, save_genre_result
-from music_state_extractor import generate_music_state
-from motion_planner import generate_motion_timeline
-from motion_parameter_generator import generate_motion_parameters
-from motion_visualizer import visualize_motion
-from motion_animator import animate_motion
-from rosbot_command_generator import generate_rosbot_commands
+from music.feature_extractor import analyze_song
+from music.genre_classifier import classify_genre, save_genre_result
+from music.music_state_extractor import generate_music_state
+from motion.motion_planner import generate_motion_timeline
+from motion.motion_parameter_generator import generate_motion_parameters
+from motion.motion_visualizer import visualize_motion
+from motion.motion_animator import animate_motion
+from motion.rosbot_command_generator import generate_rosbot_commands
 
 
 # ==========================================

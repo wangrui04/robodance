@@ -30,17 +30,20 @@ robodance/
 │
 ├── src/
 │   ├── pipeline.py
-│   ├── feature_extractor.py
-│   ├── genre_classifier.py
-│   ├── music_state_extractor.py
-│   ├── motion_planner.py
-│   ├── motion_parameter_generator.py
-│   ├── rosbot_command_generator.py
-│   ├── motion_visualizer.py
-│   ├── motion_animator.py
+│   ├── music/
+│   │   ├── feature_extractor.py
+│   │   ├── genre_classifier.py
+│   │   ├── music_state_extractor.py
+│   │   └── section_detection.py
 │   │
-│   └── basic/
-│       └── ...                  # Earlier baseline implementation
+│   └── motion/
+│       ├── motion_planner.py
+│       ├── motion_parameter_generator.py
+│       ├── rosbot_command_generator.py
+│       ├── motion_visualizer.py
+│       ├── motion_animator.py
+│       └── basic/               # Earlier baseline implementation
+│           └── ...
 │
 ├── output/
 │   ├── features/
@@ -55,7 +58,9 @@ robodance/
 └── README.md
 ```
 
-The `src/basic/` directory contains the earlier beat-based simulation and is kept separate from the main implementation.
+The `src/music/` directory contains audio analysis and music-state modules.
+The `src/motion/` directory contains planning, command generation, and visualization
+modules. Its `basic/` subdirectory contains the earlier beat-based simulation.
 
 ## Pipeline Architecture
 
@@ -92,7 +97,7 @@ Trajectory PNG       MP4 Animation
 
 ### 1. Music Feature Extraction
 
-**File:** `feature_extractor.py`
+**File:** `src/music/feature_extractor.py`
 
 The system uses `librosa` to analyze an input audio file and extract:
 
@@ -105,7 +110,7 @@ These features provide information about the overall musical character.
 
 ### 2. Genre Classification
 
-**File:** `genre_classifier.py`
+**File:** `src/music/genre_classifier.py`
 
 A heuristic classifier uses extracted musical features to estimate the genre or movement style associated with a song.
 
@@ -124,7 +129,7 @@ Instead, it considers how the musical characteristics change throughout the song
 
 ### 3. Music State Extraction
 
-**File:** `music_state_extractor.py`
+**File:** `src/music/music_state_extractor.py`
 
 The system analyzes the music over time to identify changing musical characteristics.
 
@@ -147,7 +152,7 @@ The system also records detected beats, their timestamps, and normalized beat st
 
 ### 4. Musical Accent Selection
 
-**File:** `motion_planner.py`
+**File:** `src/motion/motion_planner.py`
 
 The robot does not need to change movements on every beat.
 
@@ -168,7 +173,7 @@ The selected accents are converted into motion events containing start times, en
 
 ### 5. Motion Parameter Generation
 
-**File:** `motion_parameter_generator.py`
+**File:** `src/motion/motion_parameter_generator.py`
 
 The motion parameter generator converts planned movement events into structured motion parameters.
 
@@ -178,7 +183,7 @@ The resulting events are passed to the ROSbot command generator.
 
 ### 6. Music-Adaptive Movement Selection
 
-**File:** `rosbot_command_generator.py`
+**File:** `src/motion/rosbot_command_generator.py`
 
 The robot can select from multiple movement primitives.
 
@@ -215,7 +220,7 @@ The system also discourages repetitive primitive selection to encourage movement
 
 ### 7. Weighted Spatial Exploration
 
-**File:** `rosbot_command_generator.py`
+**File:** `src/motion/rosbot_command_generator.py`
 
 To encourage the robot to explore different parts of the stage, the system uses weighted destination selection.
 
@@ -287,8 +292,8 @@ The command sequence is saved as JSON for simulation and potential future ROS in
 ### 10. Trajectory Visualization and Animation
 
 **Files:**
-- `motion_visualizer.py`
-- `motion_animator.py`
+- `src/motion/motion_visualizer.py`
+- `src/motion/motion_animator.py`
 
 The visualizer integrates the generated velocity commands to produce a top-down representation of the robot's trajectory.
 

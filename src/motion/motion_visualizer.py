@@ -4,7 +4,7 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 
-from rosbot_command_generator import integrate
+from motion.rosbot_command_generator import integrate
 
 
 def visualize_motion(commands_data, visualization_folder):
