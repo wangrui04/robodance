@@ -16,7 +16,7 @@ from rosbot_command_generator import generate_rosbot_commands
 # ==========================================
 
 SONG = None      # None = process all songs
-PREVIEW = 60               # Seconds (0 = full song)
+PREVIEW = 0               # Seconds (0 = full song)
 FPS = 12
 
 # ==========================================
@@ -33,6 +33,13 @@ STOP = 0.22                # Pause before next selected beat
 # ==========================================
 
 # Probability of selecting each region as a destination
+# mdp approach
+# fuse it with weighted approach like probability change everytime it moves to a region
+# also how many times it can go to a certain region 
+# and the transition probabilities between regions
+# divide in terms of quadrants and centre
+# if you stay in a region for a very long time, the probability of selecting that region should decrease to zero 
+
 REGION_WEIGHTS = {
     "centre": 0.50,
     "top_left": 0.125,
