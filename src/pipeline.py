@@ -1,45 +1,32 @@
 
+import secrets
 from pathlib import Path
 
-from music.feature_extractor import analyze_song
-from music.genre_classifier import classify_genre, save_genre_result
-from music.music_state_extractor import generate_music_state
+from music_analysis.feature_extractor import analyze_song
+from music_analysis.genre_classifier import classify_genre, save_genre_result
+from music_analysis.music_state_extractor import generate_music_state
 from motion.motion_planner import generate_motion_timeline
 from motion.motion_parameter_generator import generate_motion_parameters
 from motion.motion_visualizer import visualize_motion
 from motion.motion_animator import animate_motion
 from motion.rosbot_command_generator import generate_rosbot_commands
+from motion.region_analysis import analyze_region_occupancy
 
 
 # ==========================================
-# SETTINGS - CHANGE THESE VALUES
+# SETTINGS
 # ==========================================
 
-SONG = None      # None = process all songs
-PREVIEW = 0               # Seconds (0 = full song)
+SONG = None                # None = process all songs; otherwise e.g. "river.mp3"
+PREVIEW = 30               # Seconds (0 = full song)
 FPS = 12
 
-# ==========================================
-# MUSIC AND MOVEMENT TIMING
-# ==========================================
+# Music and movement timing
+STRENGTH = 0.65
+MIN_MOVEMENT_GAP = 2.0
+STOP = 0.22
 
-STRENGTH = 0.65            # Beat strength threshold
-MIN_MOVEMENT_GAP = 2.0     # Seconds between movement changes
-STOP = 0.22                # Pause before next selected beat
-
-
-# ==========================================
-# SPATIAL EXPLORATION
-# ==========================================
-
-# Probability of selecting each region as a destination
-# mdp approach
-# fuse it with weighted approach like probability change everytime it moves to a region
-# also how many times it can go to a certain region 
-# and the transition probabilities between regions
-# divide in terms of quadrants and centre
-# if you stay in a region for a very long time, the probability of selecting that region should decrease to zero 
-
+# Spatial layout: 4x4 cells grouped into five logical regions
 REGION_WEIGHTS = {
     "centre": 0.50,
     "top_left": 0.125,
@@ -48,25 +35,22 @@ REGION_WEIGHTS = {
     "bottom_right": 0.125,
 }
 
-SAFETY_MARGIN = 0.40       # Metres from stage boundary
-TARGET_INTERVAL = 7.0      # Seconds between destination selections
-TARGET_RADIUS = 0.35       # Metres: distance considered near target
-RANDOM_SEED = 42           # Reproducible movement choices
+SAFETY_MARGIN = 0.40
+TARGET_RADIUS = 0.35
+TRAVEL_SPEED = 0.32
 
+# Dynamic region-selection probabilities
+DISTANCE_LAMBDA = 0.35
+VISIT_PENALTY = 0.40
+VISIT_MEMORY_DECAY = 0.85
+MAX_CONSECUTIVE_SELECTIONS = 2
 
-# ==========================================
-# ROBOT MOVEMENT
-# ==========================================
-
-TRAVEL_SPEED = 0.32        # Base linear speed (m/s)
-
-
-# ==========================================
-# FOLDERS
-# ==========================================
+# Hybrid travel + variable in-region exploration
+MAX_TRAVEL_TIME = 15.0      # Timeout evaluated at musical event boundaries
+DWELL_MIN = 5.0             # Planned region exploration time after arrival
+DWELL_MAX = 15.0
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-
 MUSIC_FOLDER = PROJECT_ROOT / "music"
 OUTPUT_FOLDER = PROJECT_ROOT / "output"
 
@@ -77,10 +61,11 @@ OUTPUT_FOLDER = PROJECT_ROOT / "output"
 
 def main():
 
-    if SONG is None:
-        audio_files = sorted(MUSIC_FOLDER.glob("*.mp3"))
-    else:
-        audio_files = [MUSIC_FOLDER / SONG]
+    audio_files = (
+        sorted(MUSIC_FOLDER.glob("*.mp3"))
+        if SONG is None
+        else [MUSIC_FOLDER / SONG]
+    )
 
     if not audio_files:
         print("No MP3 files found.")
@@ -93,6 +78,12 @@ def main():
             continue
 
         print(f"\nProcessing {audio_file.name}")
+
+        # Generate a new random seed for each song/run.
+        # Save this value to reproduce a particular performance.
+        random_seed = secrets.randbits(64)
+
+        print(f"Random seed: {random_seed}")
 
         # --------------------------------------
         # 1. Extract musical features
@@ -115,7 +106,7 @@ def main():
         )
 
         # --------------------------------------
-        # 3. Extract beats and musical states
+        # 3. Extract musical states
         # --------------------------------------
 
         music_state = generate_music_state(
@@ -124,7 +115,7 @@ def main():
         )
 
         # --------------------------------------
-        # 4. Select musical movement changes
+        # 4. Generate motion timeline
         # --------------------------------------
 
         motion_timeline = generate_motion_timeline(
@@ -133,7 +124,7 @@ def main():
             OUTPUT_FOLDER / "motion_timelines",
             strength_threshold=STRENGTH,
             stop_seconds=STOP,
-            min_movement_gap=MIN_MOVEMENT_GAP
+            min_movement_gap=MIN_MOVEMENT_GAP,
         )
 
         # --------------------------------------
@@ -154,14 +145,32 @@ def main():
             OUTPUT_FOLDER / "rosbot_commands",
             margin=SAFETY_MARGIN,
             region_weights=REGION_WEIGHTS,
-            target_interval=TARGET_INTERVAL,
             target_radius=TARGET_RADIUS,
-            seed=RANDOM_SEED,
-            travel_speed=TRAVEL_SPEED
+            seed=random_seed,
+            travel_speed=TRAVEL_SPEED,
+            max_travel_time=MAX_TRAVEL_TIME,
+            dwell_min=DWELL_MIN,
+            dwell_max=DWELL_MAX,
+            distance_lambda=DISTANCE_LAMBDA,
+            visit_penalty=VISIT_PENALTY,
+            visit_memory_decay=VISIT_MEMORY_DECAY,
+            max_consecutive=MAX_CONSECUTIVE_SELECTIONS,
+        )
+
+        # Include seed in the in-memory results for reference.
+        rosbot_commands["random_seed"] = random_seed
+
+        # --------------------------------------
+        # 7. Analyze spatial exploration
+        # --------------------------------------
+
+        analysis, analysis_file = analyze_region_occupancy(
+            rosbot_commands,
+            OUTPUT_FOLDER / "region_analysis"
         )
 
         # --------------------------------------
-        # 7. Visualize robot trajectory
+        # 8. Visualize trajectory
         # --------------------------------------
 
         path_file = visualize_motion(
@@ -170,7 +179,7 @@ def main():
         )
 
         # --------------------------------------
-        # 8. Generate MP4 with original music
+        # 9. Generate animation
         # --------------------------------------
 
         video_file = animate_motion(
@@ -178,35 +187,39 @@ def main():
             audio_file,
             OUTPUT_FOLDER / "animations",
             preview_seconds=PREVIEW,
-            fps=FPS
+            fps=FPS,
         )
 
         # --------------------------------------
-        # 9. Print results
+        # 10. Print results
         # --------------------------------------
 
         print(f"\nGenre: {genre['predicted_genre']}")
+        print(f"Random seed: {random_seed}")
+        print(f"Selected accents: {motion_timeline['num_strong_beats']}")
+        print(f"Motion events: {motion_timeline['num_motion_events']}")
+        print(f"ROSbot commands: {rosbot_commands['num_commands']}")
+        print(f"Target selections: {len(rosbot_commands['targets'])}")
 
+        print("\nSPATIAL EXPLORATION SUMMARY")
         print(
-            f"Selected accents: "
-            f"{motion_timeline['num_strong_beats']}"
+            f"{'Region':<15} "
+            f"{'Selected':>8} "
+            f"{'Reached':>8} "
+            f"{'Time (s)':>11} "
+            f"{'Time %':>8}"
         )
 
-        print(
-            f"Motion events: "
-            f"{motion_timeline['num_motion_events']}"
-        )
+        for region, stats in analysis["region_summary"].items():
+            print(
+                f"{region:<15} "
+                f"{stats['selected_count']:>8} "
+                f"{stats['reached_count']:>8} "
+                f"{stats['time_spent_seconds']:>11.2f} "
+                f"{stats['time_spent_percent']:>7.1f}%"
+            )
 
-        print(
-            f"ROSbot commands: "
-            f"{rosbot_commands['num_commands']}"
-        )
-
-        print(
-            f"Target selections: "
-            f"{len(rosbot_commands['targets'])}"
-        )
-
+        print(f"\nRegion analysis: {analysis_file}")
         print(f"Path: {path_file}")
         print(f"MP4: {video_file}")
 

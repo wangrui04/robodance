@@ -1,3 +1,4 @@
+"""Music-driven ROSbot commands with history-aware 4x4 spatial navigation."""
 
 import json
 import math
@@ -5,6 +6,13 @@ import random
 from collections import Counter, deque
 from pathlib import Path
 
+from motion.region_analysis import (
+    REGION_CELLS,
+    region_centres,
+    region_for_position,
+    sample_target,
+    safe_bounds,
+)
 
 REGION_WEIGHTS = {
     "centre": 0.50,
@@ -13,20 +21,8 @@ REGION_WEIGHTS = {
     "bottom_left": 0.125,
     "bottom_right": 0.125,
 }
-
-SHARP_MOVEMENTS = [
-    "forward_pulse",
-    "backward_pulse",
-    "sharp_left",
-    "sharp_right",
-]
-
-SMOOTH_MOVEMENTS = [
-    "left_curve",
-    "right_curve",
-    "s_wave",
-    "slow_sway",
-]
+SHARP_MOVEMENTS = ["forward_pulse", "backward_pulse", "sharp_left", "sharp_right"]
+SMOOTH_MOVEMENTS = ["left_curve", "right_curve", "s_wave", "slow_sway"]
 
 
 def clamp(value, low, high):
@@ -39,148 +35,87 @@ def angle_difference(target, current):
 
 def integrate(x, y, heading, v, w, dt):
     if abs(w) < 1e-9:
-        return (
-            x + v * math.cos(heading) * dt,
-            y + v * math.sin(heading) * dt,
-            heading,
-        )
-
+        return x + v * math.cos(heading) * dt, y + v * math.sin(heading) * dt, heading
     new_heading = heading + w * dt
-
     return (
-        x + v / w * (
-            math.sin(new_heading) - math.sin(heading)
-        ),
-        y - v / w * (
-            math.cos(new_heading) - math.cos(heading)
-        ),
+        x + v / w * (math.sin(new_heading) - math.sin(heading)),
+        y - v / w * (math.cos(new_heading) - math.cos(heading)),
         new_heading,
     )
 
 
-def get_regions(boundary, margin):
-    xmin = boundary["x_min"] + margin
-    xmax = boundary["x_max"] - margin
-    ymin = boundary["y_min"] + margin
-    ymax = boundary["y_max"] - margin
-
-    cx = (xmin + xmax) / 2
-    cy = (ymin + ymax) / 2
-
-    # Targets remain inside the safe area.
-    dx = (xmax - xmin) * 0.34
-    dy = (ymax - ymin) * 0.34
-
-    return {
-        "centre": (cx, cy),
-        "top_left": (cx - dx, cy + dy),
-        "top_right": (cx + dx, cy + dy),
-        "bottom_left": (cx - dx, cy - dy),
-        "bottom_right": (cx + dx, cy - dy),
-    }
-
-
 def get_sharpness(event, energy_low, energy_high):
     source = event.get("source", {})
-
     energy = float(source.get("energy", 0.0))
     change = abs(float(source.get("energy_change", 0.0)))
     beat = float(event.get("beat_strength", 0.0))
-
-    # Normalize energy relative to this song.
-    energy_norm = clamp(
-        (energy - energy_low)
-        / max(energy_high - energy_low, 1e-9),
-        0.0,
-        1.0,
-    )
-
-    # Changes and accents can create sharp moments
-    # even during otherwise calm passages.
-    change_score = clamp(change / 0.08, 0.0, 1.0)
-    beat_score = clamp(beat, 0.0, 1.0)
-
-    sharpness = (
-        0.55 * energy_norm
-        + 0.25 * change_score
-        + 0.20 * beat_score
-    )
-
+    energy_norm = clamp((energy - energy_low) / max(energy_high - energy_low, 1e-9), 0, 1)
+    sharpness = 0.55 * energy_norm + 0.25 * clamp(change / 0.08, 0, 1) + 0.20 * clamp(beat, 0, 1)
     quality = source.get("movement_quality", "")
-
     if quality == "strong":
         sharpness += 0.10
     elif quality in ("smooth", "flowing"):
         sharpness -= 0.08
-
     return clamp(sharpness, 0.10, 0.90)
 
 
 def movement_profile(action, duration, speed):
-    # Each tuple is (linear speed, angular speed, duration).
-    # All segments together fill one movement event.
-
     if action == "forward_pulse":
         return [(speed * 1.2, 0.0, duration)]
-
     if action == "backward_pulse":
         return [(-speed * 0.8, 0.0, duration)]
-
     if action == "sharp_left":
-        return [
-            (0.0, 1.6, duration * 0.30),
-            (speed, 0.0, duration * 0.70),
-        ]
-
+        return [(0.0, 1.6, duration * 0.30), (speed, 0.0, duration * 0.70)]
     if action == "sharp_right":
-        return [
-            (0.0, -1.6, duration * 0.30),
-            (speed, 0.0, duration * 0.70),
-        ]
-
+        return [(0.0, -1.6, duration * 0.30), (speed, 0.0, duration * 0.70)]
     if action == "left_curve":
         return [(speed, 0.65, duration)]
-
     if action == "right_curve":
         return [(speed, -0.65, duration)]
-
     if action == "s_wave":
-        return [
-            (speed, 0.8, duration * 0.25),
-            (speed, -0.8, duration * 0.50),
-            (speed, 0.8, duration * 0.25),
-        ]
-
+        return [(speed, 0.8, duration * 0.25), (speed, -0.8, duration * 0.50), (speed, 0.8, duration * 0.25)]
     if action == "slow_sway":
-        return [
-            (speed * 0.65, 0.55, duration * 0.50),
-            (speed * 0.65, -0.55, duration * 0.50),
-        ]
-
+        return [(speed * 0.65, 0.55, duration * 0.50), (speed * 0.65, -0.55, duration * 0.50)]
     return [(0.0, 0.0, duration)]
 
 
-def safe_trajectory(pose, segments, boundary, margin):
+def safe_trajectory(pose, segments, boundary, margin, stay_in_region=None):
     x, y, heading = pose
-
+    xmin, xmax, ymin, ymax = safe_bounds(boundary, margin)
     for v, w, duration in segments:
         steps = max(1, math.ceil(duration / 0.025))
         dt = duration / steps
-
         for _ in range(steps):
-            x, y, heading = integrate(
-                x, y, heading, v, w, dt
-            )
-
-            if not (
-                boundary["x_min"] + margin <= x
-                <= boundary["x_max"] - margin
-                and boundary["y_min"] + margin <= y
-                <= boundary["y_max"] - margin
-            ):
+            x, y, heading = integrate(x, y, heading, v, w, dt)
+            if not (xmin <= x <= xmax and ymin <= y <= ymax):
                 return None
+            if stay_in_region and region_for_position(x, y, boundary, margin) != stay_in_region:
+                return None
+    return x, y, heading
 
-    return (x, y, heading)
+
+def calculate_region_probabilities(
+    pose, boundary, margin, weights, visit_memory,
+    last_selected, consecutive_selections, distance_lambda,
+    visit_penalty, max_consecutive,
+):
+    centres = region_centres(boundary, margin)
+    xmin, xmax, ymin, ymax = safe_bounds(boundary, margin)
+    cell_size = ((xmax - xmin) / 4 + (ymax - ymin) / 4) / 2
+    scores = {}
+    for region, weight in weights.items():
+        # Measure distance from the robot's physical pose, not a previous goal.
+        cx, cy = centres[region]
+        distance_in_cells = math.hypot(pose[0] - cx, pose[1] - cy) / cell_size
+        score = weight * math.exp(-distance_lambda * distance_in_cells)
+        score *= math.exp(-visit_penalty * visit_memory[region])
+        if region == last_selected and consecutive_selections >= max_consecutive:
+            score = 0.0
+        scores[region] = score
+    total = sum(scores.values())
+    if total <= 0:
+        raise ValueError("No eligible regions: check base weights and repetition constraint.")
+    return {name: value / total for name, value in scores.items()}
 
 
 def generate_rosbot_commands(
@@ -188,361 +123,236 @@ def generate_rosbot_commands(
     output_folder,
     margin=0.40,
     region_weights=None,
-    target_interval=7.0,
     target_radius=0.35,
     seed=42,
     travel_speed=0.32,
+    max_travel_time=15.0,
+    dwell_min=5.0,
+    dwell_max=15.0,
+    distance_lambda=0.35,
+    visit_penalty=0.40,
+    visit_memory_decay=0.85,
+    max_consecutive=2,
 ):
+    """Choose a region, travel to its target, then explore there for a variable duration.
+
+    All phase transitions take place at eligible musical-event boundaries.
+    Dwell begins after the exact point target is reached, not at selection time.
+    """
     output_folder = Path(output_folder)
     output_folder.mkdir(parents=True, exist_ok=True)
-
     boundary = motion_parameters["boundary"]
-    events = motion_parameters["motion_parameters"]
+    events = sorted(motion_parameters["motion_parameters"], key=lambda event: event["time"])
     song_duration = float(motion_parameters["duration"])
+    weights = dict(REGION_WEIGHTS if region_weights is None else region_weights)
 
-    if margin < 0:
-        raise ValueError("Safety margin must be nonnegative.")
-
-    if target_interval <= 0 or target_radius <= 0:
-        raise ValueError("Target timing and radius must be positive.")
-
-    if travel_speed <= 0:
-        raise ValueError("Travel speed must be positive.")
-
-    if (
-        boundary["x_max"] - boundary["x_min"] <= 2 * margin
-        or boundary["y_max"] - boundary["y_min"] <= 2 * margin
-    ):
-        raise ValueError("Safety margin is too large.")
-
-    weights = (
-        dict(REGION_WEIGHTS)
-        if region_weights is None
-        else dict(region_weights)
-    )
-
-    regions = get_regions(boundary, margin)
-
-    if (
-        set(weights) != set(regions)
-        or any(value < 0 for value in weights.values())
-        or sum(weights.values()) <= 0
-    ):
-        raise ValueError("Invalid region weights.")
+    xmin, xmax, ymin, ymax = safe_bounds(boundary, margin)
+    if xmin >= xmax or ymin >= ymax:
+        raise ValueError("Safety margin is too large for the stage.")
+    if set(weights) != set(REGION_CELLS) or any(not math.isfinite(w) or w < 0 for w in weights.values()) or sum(weights.values()) <= 0:
+        raise ValueError("Provide nonnegative weights for all five regions, with a positive sum.")
+    if target_radius <= 0 or travel_speed <= 0 or max_travel_time <= 0:
+        raise ValueError("Target radius, travel speed, and maximum travel time must be positive.")
+    if dwell_min <= 0 or dwell_max < dwell_min:
+        raise ValueError("Require 0 < dwell_min <= dwell_max.")
+    if distance_lambda < 0 or visit_penalty < 0 or not 0 <= visit_memory_decay <= 1 or max_consecutive < 1:
+        raise ValueError("Invalid transition or history settings.")
 
     rng = random.Random(seed)
-
-    # Use this song's own energy distribution.
-    energies = sorted(
-        float(e.get("source", {}).get("energy", 0.0))
-        for e in events
-    )
-
+    energies = sorted(float(e.get("source", {}).get("energy", 0)) for e in events)
     if energies:
-        energy_low = energies[max(0, int(len(energies) * 0.10))]
-        energy_high = energies[
-            min(len(energies) - 1, int(len(energies) * 0.90))
-        ]
+        low = energies[int((len(energies) - 1) * 0.10)]
+        high = energies[int((len(energies) - 1) * 0.90)]
     else:
-        energy_low, energy_high = 0.0, 1.0
+        low, high = 0.0, 1.0
 
-    commands = []
-    targets = []
-
+    commands, targets = [], []
     pose = (0.0, 0.0, 0.0)
     current_time = 0.0
-
     recent_actions = deque(maxlen=3)
     usage = Counter()
-
-    target_name = None
-    target_point = None
-    next_target_time = 0.0
+    memory = {name: 0.0 for name in weights}
+    previous_selected = None
+    consecutive_selections = 0
+    target = None
+    stage = "choose"  # choose -> travel -> dwell -> choose
+    dwell_end = None
 
     def append_command(start, end, action, v, w):
         nonlocal pose
-
         if end <= start:
             return
-
-        duration = end - start
-
         commands.append({
             "time": round(start, 4),
             "start_time": round(start, 4),
             "end_time": round(end, 4),
-            "duration": round(duration, 4),
+            "duration": round(end - start, 4),
             "action": action,
             "linear_x": round(v, 4),
             "angular_z": round(w, 4),
         })
+        pose = integrate(*pose, v, w, end - start)
 
-        pose = integrate(*pose, v, w, duration)
-
-    def select_target(time):
-        nonlocal target_name, target_point, next_target_time
-
-        names = list(regions)
-
-        # Exact configured weights for each new selection.
-        target_name = rng.choices(
-            names,
-            weights=[weights[name] for name in names],
-            k=1,
-        )[0]
-
-        anchor = regions[target_name]
-
-        # Small variation within each region.
-        jitter = 0.12
-
-        xmin = boundary["x_min"] + margin
-        xmax = boundary["x_max"] - margin
-        ymin = boundary["y_min"] + margin
-        ymax = boundary["y_max"] - margin
-
-        target_point = (
-            clamp(anchor[0] + rng.uniform(-jitter, jitter), xmin, xmax),
-            clamp(anchor[1] + rng.uniform(-jitter, jitter), ymin, ymax),
+    def choose_target(now):
+        nonlocal target, previous_selected, consecutive_selections, stage
+        probabilities = calculate_region_probabilities(
+            pose, boundary, margin, weights, memory,
+            previous_selected, consecutive_selections,
+            distance_lambda, visit_penalty, max_consecutive,
         )
+        region = rng.choices(list(probabilities), weights=list(probabilities.values()), k=1)[0]
+        x, y, cell = sample_target(region, boundary, margin, rng)
+        target = {
+            "time": round(now, 4),
+            "region": region,
+            "x": round(x, 4),
+            "y": round(y, 4),
+            "cell": f"r{cell[0]+1}c{cell[1]+1}",
+            "selection_probability": round(probabilities[region], 6),
+            "probabilities": {name: round(p, 6) for name, p in probabilities.items()},
+            "outcome": "pending",
+            "arrival_time": None,
+            "travel_time": None,
+            "planned_dwell_seconds": None,
+            "dwell_started_at": None,
+            "dwell_ended_at": None,
+        }
+        targets.append(target)
+        consecutive_selections = consecutive_selections + 1 if region == previous_selected else 1
+        previous_selected = region
+        for name in memory:
+            memory[name] *= visit_memory_decay
+        memory[region] += 1.0
+        stage = "travel"
 
-        next_target_time = time + target_interval
+    def target_distance():
+        return math.hypot(pose[0] - target["x"], pose[1] - target["y"])
 
-        targets.append({
-            "time": round(time, 4),
-            "region": target_name,
-            "x": round(target_point[0], 4),
-            "y": round(target_point[1], 4),
-        })
+    def arrived():
+        return (target_distance() <= target_radius and
+                region_for_position(pose[0], pose[1], boundary, margin) == target["region"])
 
-    def distance_to_target(point):
-        return math.hypot(
-            point[0] - target_point[0],
-            point[1] - target_point[1],
-        )
+    def begin_dwell(now):
+        nonlocal dwell_end, stage
+        target["outcome"] = "reached"
+        target["arrival_time"] = round(now, 4)
+        target["travel_time"] = round(now - target["time"], 4)
+        target["planned_dwell_seconds"] = round(rng.uniform(dwell_min, dwell_max), 4)
+        target["dwell_started_at"] = round(now, 4)
+        dwell_end = now + target["planned_dwell_seconds"]
+        stage = "dwell"
 
     for event in events:
         start = max(current_time, float(event["time"]))
         end = min(song_duration, float(event["end_time"]))
-
         if start > current_time:
-            append_command(
-                current_time, start, "STOP", 0.0, 0.0
-            )
-
+            append_command(current_time, start, "STOP", 0.0, 0.0)
         if end <= start:
             current_time = max(current_time, start)
             continue
 
-        if target_point is None or start >= next_target_time:
-            select_target(start)
+        # Decisions occur only at musical movement event boundaries.
+        if stage == "travel":
+            if arrived():
+                begin_dwell(start)
+            elif start - target["time"] >= max_travel_time:
+                target["outcome"] = "timeout"
+                target["travel_time"] = round(start - target["time"], 4)
+                stage = "choose"
+        if stage == "dwell" and start >= dwell_end:
+            target["dwell_ended_at"] = round(start, 4)
+            stage = "choose"
+        if stage == "choose":
+            choose_target(start)
+            if arrived():
+                begin_dwell(start)
 
+        sharpness = get_sharpness(event, low, high)
+        is_sharp = rng.random() < sharpness
+        group = SHARP_MOVEMENTS if is_sharp else SMOOTH_MOVEMENTS
+        other = SMOOTH_MOVEMENTS if is_sharp else SHARP_MOVEMENTS
+        choices = [a for a in group if a not in recent_actions] or list(group)
+        preferred = rng.choices(choices, weights=[1.0 / (1 + usage[a]) for a in choices], k=1)[0]
         duration = end - start
-        distance = distance_to_target(pose)
 
-        sharpness = get_sharpness(
-            event, energy_low, energy_high
-        )
-
-        # The music determines the probability of a
-        # sharp or smooth movement.
-        if rng.random() < sharpness:
-            preferred_group = SHARP_MOVEMENTS
-            quality = "SHARP"
-        else:
-            preferred_group = SMOOTH_MOVEMENTS
-            quality = "SMOOTH"
-
-        # Select among primitives, discouraging repetition.
-        choices = [
-            action for action in preferred_group
-            if action not in recent_actions
-        ]
-
-        if not choices:
-            choices = list(preferred_group)
-
-        chosen = rng.choices(
-            choices,
-            weights=[
-                1.0 / (1.0 + usage[action])
-                for action in choices
-            ],
-            k=1,
-        )[0]
-
-        # ------------------------------------------------
-        # NAVIGATION: turn toward the selected destination
-        # ------------------------------------------------
-
-        # Only navigate strongly when not already near target.
-        if distance > target_radius:
-            desired_heading = math.atan2(
-                target_point[1] - pose[1],
-                target_point[0] - pose[0],
-            )
-
-            error = angle_difference(
-                desired_heading, pose[2]
-            )
-
-            # A separate heading correction prevents the
-            # robot from drifting toward one side forever.
-            if abs(error) > 0.25:
-                turn_speed = clamp(
-                    abs(error) * 1.5, 0.4, 1.6
-                )
-
-                turn_time = min(
-                    duration * 0.40,
-                    abs(error) / turn_speed,
-                )
-
-                signed_turn = math.copysign(
-                    turn_speed, error
-                )
-
-                append_command(
-                    start,
-                    start + turn_time,
-                    "navigate_turn",
-                    0.0,
-                    signed_turn,
-                )
-
+        if stage == "travel" and target_distance() > target_radius:
+            angle = math.atan2(target["y"] - pose[1], target["x"] - pose[0])
+            error = angle_difference(angle, pose[2])
+            if abs(error) > 0.20:
+                turn_speed = clamp(abs(error) * 1.5, 0.4, 1.6)
+                turn_time = min(duration * 0.40, abs(error) / turn_speed)
+                append_command(start, start + turn_time, "navigate_turn", 0.0, math.copysign(turn_speed, error))
                 start += turn_time
                 duration = end - start
 
-        if duration <= 1e-6:
+        if duration <= 1e-8:
             current_time = end
             continue
 
-        # ------------------------------------------------
-        # MUSIC: execute expressive movement
-        # ------------------------------------------------
-
-        # Choose a speed appropriate to the musical quality.
-        if quality == "SHARP":
-            speed = travel_speed * 1.15
-        else:
-            speed = travel_speed * 0.75
-
+        speed = travel_speed * (1.15 if is_sharp else 0.75)
         candidates = []
+        ordered = [preferred] + [a for a in group if a != preferred] + list(other)
+        # A directed forward movement is a reliable fallback for travelling.
+        if stage == "travel":
+            ordered.append("navigate_forward")
 
-        # Consider the chosen primitive first, then other
-        # movements of the same musical quality.
-        ordered_actions = [chosen] + [
-            action for action in preferred_group
-            if action != chosen
-        ]
-
-        # Include the other style as a safety fallback.
-        other_group = (
-            SMOOTH_MOVEMENTS
-            if quality == "SHARP"
-            else SHARP_MOVEMENTS
-        )
-
-        ordered_actions += other_group
-
-        for action in ordered_actions:
-            for scale in (1.0, 0.75, 0.50, 0.25):
-
-                segments = movement_profile(
-                    action, duration, speed * scale
-                )
-
+        for action in ordered:
+            for scale in (1.0, 0.75, 0.5, 0.25):
+                if action == "navigate_forward":
+                    segments = [(travel_speed * scale, 0.0, duration)]
+                else:
+                    segments = movement_profile(action, duration, speed * scale)
                 final_pose = safe_trajectory(
-                    pose, segments, boundary, margin
+                    pose, segments, boundary, margin,
+                    stay_in_region=target["region"] if stage == "dwell" else None,
                 )
-
                 if final_pose is None:
                     continue
-
-                progress = (
-                    distance_to_target(pose)
-                    - distance_to_target(final_pose)
-                )
-
-                # Target progress matters, but movement
-                # quality still matters too.
-                quality_bonus = (
-                    2.0 if action in preferred_group else 0.0
-                )
-
-                chosen_bonus = (
-                    0.8 if action == chosen else 0.0
-                )
-
-                repetition_penalty = (
-                    1.5 if action in recent_actions else 0.0
-                )
-
-                score = (
-                    progress * 12.0
-                    + quality_bonus
-                    + chosen_bonus
-                    + scale * 0.5
-                    - repetition_penalty
-                    - usage[action] * 0.10
-                )
-
-                # When near the target, prioritize
-                # musical expression over travel.
-                if distance < target_radius:
-                    score -= progress * 10.0
-
-                candidates.append(
-                    (score, action, segments)
-                )
+                repetition = 1.5 if action in recent_actions else 0.0
+                quality_bonus = 2.0 if action in group else 0.0
+                chosen_bonus = 0.8 if action == preferred else 0.0
+                score = quality_bonus + chosen_bonus + scale * 0.5 - repetition - usage[action] * 0.10
+                if stage == "travel":
+                    before = target_distance()
+                    after = math.hypot(final_pose[0] - target["x"], final_pose[1] - target["y"])
+                    score += (before - after) * 20.0
+                    if action == "navigate_forward":
+                        score -= 0.6  # Prefer expressive primitives when progress is similar.
+                candidates.append((score, action, segments))
 
         if candidates:
-            _, chosen, segments = max(
-                candidates,
-                key=lambda item: item[0]
-            )
+            _, chosen, segments = max(candidates, key=lambda item: item[0])
         else:
-            chosen = "hold"
-            segments = [(0.0, 0.0, duration)]
+            chosen, segments = "hold", [(0.0, 0.0, duration)]
 
         segment_start = start
-
         for v, w, segment_duration in segments:
             segment_end = segment_start + segment_duration
-
-            append_command(
-                segment_start,
-                segment_end,
-                chosen,
-                v,
-                w,
-            )
-
+            append_command(segment_start, segment_end, chosen, v, w)
             segment_start = segment_end
 
         current_time = end
-
         if chosen != "hold":
             recent_actions.append(chosen)
             usage[chosen] += 1
+        # Arrival can be detected at event end; dwell can start on the next event.
+        if stage == "travel" and arrived():
+            begin_dwell(end)
 
         print(
-            f"{start:6.2f}s | "
-            f"Target: {target_name:<12} | "
-            f"Sharpness: {sharpness:.2f} | "
-            f"Quality: {quality:<6} | "
-            f"Motion: {chosen:<16} | "
+            f"{start:6.2f}s | Phase: {stage:<6} | Target: {target['region']:<12} | "
+            f"Sharpness: {sharpness:.2f} | Motion: {chosen:<16} | "
             f"Pos: ({pose[0]:+.2f}, {pose[1]:+.2f})"
         )
 
     if current_time < song_duration:
-        append_command(
-            current_time,
-            song_duration,
-            "STOP",
-            0.0,
-            0.0,
-        )
+        append_command(current_time, song_duration, "STOP", 0.0, 0.0)
+    if target is not None:
+        if target["outcome"] == "pending":
+            target["outcome"] = "unfinished"
+            target["travel_time"] = round(song_duration - target["time"], 4)
+        if target["outcome"] == "reached" and target["dwell_ended_at"] is None:
+            target["dwell_ended_at"] = round(song_duration, 4)
 
     data = {
         "song_name": motion_parameters["song_name"],
@@ -551,23 +361,11 @@ def generate_rosbot_commands(
         "boundary": boundary,
         "safety_margin": margin,
         "region_weights": weights,
-        "region_anchors": {
-            name: {"x": p[0], "y": p[1]}
-            for name, p in regions.items()
-        },
+        "region_anchors": {name: {"x": x, "y": y} for name, (x, y) in region_centres(boundary, margin).items()},
         "targets": targets,
         "num_commands": len(commands),
         "commands": commands,
     }
-
-    output_file = (
-        output_folder
-        / f"{Path(data['song_name']).stem}_rosbot_commands.json"
-    )
-
-    output_file.write_text(
-        json.dumps(data, indent=2),
-        encoding="utf-8",
-    )
-
+    output_file = output_folder / f"{Path(data['song_name']).stem}_rosbot_commands.json"
+    output_file.write_text(json.dumps(data, indent=2), encoding="utf-8")
     return data
