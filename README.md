@@ -1,498 +1,288 @@
 # RoboDance: Music-Responsive Robotic Dance Improvisation
 
-## Overview
+RoboDance is a research prototype exploring how one or more mobile robots can **improvise movements in response to music**, rather than following a fixed choreography or reacting to every beat. It combines music-feature analysis, movement selection, probabilistic spatial exploration, and 2D ROSbot-style simulation.
 
-RoboDance is a research project that explores how a mobile robot can generate dance-like movements in response to music.
+The project currently supports **single-robot and coordinated multi-robot simulations** through one entry point. Simulations produce top-down trajectory visualizations and MP4 animations accompanied by the original music. These are **simulated velocity commands and trajectories**, not autonomous execution on physical hardware.
 
-Rather than following predetermined choreography or moving on every beat, the system analyzes musical features and uses them to make movement decisions. These decisions consider musical energy, beat strength, changes in musical intensity, movement quality, and spatial constraints.
+## Features
 
-The current implementation uses a simulated ROSbot moving within a square stage. The long-term goal is to develop a robotic system capable of meaningful music-responsive improvisation and eventually transfer the generated movements to physical robot hardware.
+- **Music analysis:** Beat timing and strength, tempo, RMS energy, spectral brightness, and time-varying musical states.
+- **Music-responsive movement:** Musical accents guide motion events; energy, intensity changes, and beat strength influence sharp versus smooth movements.
+- **Stochastic improvisation:** A new random seed is generated for each song on each run, so the same input song can yield different performances.
+- **Spatial exploration:** A 4×4 grid grouped into five regions, with dynamic destination weights, distance preferences, selection history, and variable time spent exploring each selected region.
+- **Single-robot simulation:** Boundary-aware motion generation, command-level output, region-occupancy analysis, trajectory PNG, and music-synchronized MP4.
+- **Multi-robot simulation:** A configurable number of robots sharing a musical timeline while making individual movement decisions, with simulated pairwise separation checks and yielding/replanning behavior.
+- **Visualization:** Distinct paths in multi-robot trajectory PNGs; animated ROSbot-style bodies with movement-state colors in MP4s.
 
-## Project Objectives
+## Quick start
 
-The main objectives are to:
+### Prerequisites
 
-- Extract musical features such as tempo, beat timing, energy, and spectral brightness.
-- Identify meaningful musical accents rather than responding to every detected beat.
-- Generate different movement primitives based on musical characteristics.
-- Adapt between sharp and smooth movement qualities as the music changes.
-- Encourage spatial exploration while maintaining a preference for the centre of the stage.
-- Ensure that generated movements remain within a predefined boundary.
-- Visualize the resulting robot trajectory and generate an MP4 animation synchronized with the original music.
+- Python (the project has been developed using Python 3.13)
+- FFmpeg installed and available on your system PATH
+- Dependencies listed in `requirements.txt`
 
-## Project Structure
+From the repository root, install dependencies:
+
+```bash
+py -m pip install -r requirements.txt
+```
+
+Check that FFmpeg is accessible:
+
+```bash
+ffmpeg -version
+```
+
+On systems where the Windows `py` launcher is unavailable, use `python` instead.
+
+### Choose a song and robot count
+
+Place `.mp3` files in the repository-root `music/` directory. Edit the settings near the top of `src/pipeline.py`:
+
+```python
+NUM_ROBOTS = 1               # 1 = solo; 2+ = coordinated multi-robot
+SONG = None                  # None = process every *.mp3 in music/
+PREVIEW = 0                  # 0 = full-length animation; otherwise seconds
+FPS = 12
+```
+
+For a quicker test, set `SONG = "river.mp3"` (use the **exact filename and capitalization** of an existing file) and `PREVIEW = 30`.
+
+Run the unified pipeline **from the repository root**:
+
+```bash
+py src/pipeline.py
+```
+
+There is no separate preprocessing command to run. The pipeline performs music analysis, motion planning, command generation, and rendering in sequence.
+
+> **Output behavior:** Music analysis still processes the full song when `PREVIEW` limits the video. Runs with the same song/output filenames overwrite earlier generated results. Save a copy of any performance you wish to retain.
+
+## Project structure
 
 ```text
 robodance/
-│
-├── music/
-│   └── 16Shots.mp3
-│
-├── src/
-│   ├── pipeline.py
-│   ├── music_analysis/
-│   │   ├── feature_extractor.py
-│   │   ├── genre_classifier.py
-│   │   ├── music_state_extractor.py
-│   │   └── section_detection.py
-│   │
-│   └── motion/
-│       ├── motion_planner.py
-│       ├── motion_parameter_generator.py
-│       ├── rosbot_command_generator.py
-│       ├── motion_visualizer.py
-│       ├── motion_animator.py
-│       └── basic/               # Earlier baseline implementation
-│           └── ...
-│
-├── output/
-│   ├── features/
-│   ├── genres/
-│   ├── music_states/
-│   ├── motion_timelines/
-│   ├── motion_parameters/
-│   ├── rosbot_commands/
-│   ├── visualizations/
-│   └── animations/
-│
-└── README.md
+├── README.md
+├── LICENSE
+├── requirements.txt
+├── music/                         # Input MP3 files
+├── output/                        # Generated artifacts
+└── src/
+    ├── pipeline.py                # Unified single-/multi-robot entry point
+    ├── music_analysis/
+    │   ├── feature_extractor.py
+    │   ├── genre_classifier.py
+    │   ├── music_state_extractor.py
+    │   └── section_detection.py
+    ├── motion/
+    │   ├── motion_planner.py
+    │   ├── motion_parameter_generator.py
+    │   ├── rosbot_command_generator.py
+    │   ├── region_analysis.py
+    │   ├── motion_visualizer.py
+    │   ├── motion_animator.py
+    │   └── basic/                  # Earlier beat-synchronized baseline
+    └── multi_robot/
+        ├── planner.py
+        └── visualization.py
 ```
 
-The `src/music_analysis/` directory contains audio analysis and music-state modules.
-The `src/motion/` directory contains planning, command generation, and visualization
-modules. Its `basic/` subdirectory contains the earlier beat-based simulation.
+`src/motion/basic/` contains an earlier baseline and its own documentation. The main workflow described here is `src/pipeline.py`.
 
-## Pipeline Architecture
+## Pipeline architecture
 
 ```text
 Input MP3
-    |
-    v
-Music Feature Extraction
-    |
-    v
-Genre Classification
-    |
-    v
-Music State and Beat Analysis
-    |
-    v
-Musical Accent Selection
-    |
-    v
-Motion Planning
-    |
-    v
-Motion Parameter Generation
-    |
-    v
-Spatially Aware ROSbot Command Generation
-    |
-    +--------------------+
-    |                    |
-    v                    v
-Trajectory PNG       MP4 Animation
-                     with Music
+   │
+   ▼
+Feature extraction + heuristic genre classification
+   │
+   ▼
+Musical states, beat strengths, and accent selection
+   │
+   ▼
+Motion timeline + motion parameters
+   │
+   ├── NUM_ROBOTS = 1 ──► Single-robot command generator
+   │                       ├── Region-occupancy analysis
+   │                       ├── Trajectory PNG
+   │                       └── MP4 with original audio
+   │
+   └── NUM_ROBOTS >= 2 ─► Coordinated multi-robot planner
+                           ├── Shared pairwise separation supervision
+                           ├── Combined trajectory PNG
+                           └── Multi-robot MP4 with original audio
 ```
 
-### 1. Music Feature Extraction
+### Music analysis and movement planning
 
-**File:** `src/music_analysis/feature_extractor.py`
+- `src/music_analysis/feature_extractor.py` extracts global audio features.
+- `src/music_analysis/genre_classifier.py` uses heuristic rules to classify the song into contemporary, EDM, pop, hip-hop, jazz, or unknown. These are estimates, not learned genre predictions.
+- `src/music_analysis/music_state_extractor.py` extracts time-varying musical information and beat strengths.
+- `src/motion/motion_planner.py` selects salient musical accents and constructs movement events, rather than changing motion at every beat.
+- `src/motion/motion_parameter_generator.py` attaches movement parameters to those events.
 
-The system uses `librosa` to analyze an input audio file and extract:
+The single-robot command generator uses the music to influence the likelihood of choosing **sharp** or **smooth** primitives:
 
-- **Tempo:** Estimated beats per minute (BPM).
-- **Beat timing:** Timestamps of detected musical beats.
-- **Energy:** Root mean square (RMS) amplitude, representing musical intensity.
-- **Brightness:** Spectral centroid, describing the distribution of higher-frequency content.
+| Sharp primitives | Smooth primitives |
+| --- | --- |
+| `forward_pulse`, `backward_pulse` | `left_curve`, `right_curve` |
+| `sharp_left`, `sharp_right` | `s_wave`, `slow_sway` |
 
-These features provide information about the overall musical character.
+These are simulated combinations of linear and angular velocity, not full-body humanoid dance motions. Multi-robot choreography uses music-responsive movement and navigation controls within a coordinated simulator; its commands need not be identical to the solo primitive sequences.
 
-### 2. Genre Classification
+## Stochastic spatial exploration
 
-**File:** `src/music_analysis/genre_classifier.py`
+Both simulation modes share a **4×4 grid**, organized into a central area and four surrounding logical regions. Each grid cell is individually addressable for target selection and occupancy measurement.
 
-A heuristic classifier uses extracted musical features to estimate the genre or movement style associated with a song.
+```text
+ TL | TL | TR | TR
+ TL |  C |  C | TR
+ BL |  C |  C | BR
+ BL | BL | BR | BR
 
-Supported categories include:
+C = centre; TL/TR/BL/BR = quadrants
+```
 
-- Contemporary
-- EDM
-- Pop
-- Hip-hop
-- Jazz
-- Unknown
+The baseline region weights are:
 
-Genre classification provides general musical context. However, the latest movement selection system does not rely exclusively on genre.
-
-Instead, it considers how the musical characteristics change throughout the song.
-
-### 3. Music State Extraction
-
-**File:** `src/music_analysis/music_state_extractor.py`
-
-The system analyzes the music over time to identify changing musical characteristics.
-
-The extracted states include:
-
-- Energy
-- Brightness
-- Energy changes
-- Brightness changes
-- Movement quality
-
-Movement qualities include:
-
-- Still
-- Smooth
-- Flowing
-- Strong
-
-The system also records detected beats, their timestamps, and normalized beat strengths.
-
-### 4. Musical Accent Selection
-
-**File:** `src/motion/motion_planner.py`
-
-The robot does not need to change movements on every beat.
-
-Instead, the motion planner identifies meaningful musical accents and selects a subset of them as potential movement transition points.
-
-The current approach:
-
-1. Analyzes the strength of detected beats.
-2. Uses a relative threshold based on the song's beat-strength distribution.
-3. Identifies local peaks in beat strength.
-4. Selects accents within configurable time windows.
-5. Allows movements to continue across multiple beats.
-6. Introduces short pauses before selected transitions.
-
-This avoids the repetitive behavior of moving forward or backward on every beat.
-
-The selected accents are converted into motion events containing start times, end times, durations, and musical information.
-
-### 5. Motion Parameter Generation
-
-**File:** `src/motion/motion_parameter_generator.py`
-
-The motion parameter generator converts planned movement events into structured motion parameters.
-
-These include movement durations and parameters associated with the intended motion, such as speed, amplitude, and turning characteristics.
-
-The resulting events are passed to the ROSbot command generator.
-
-### 6. Music-Adaptive Movement Selection
-
-**File:** `src/motion/rosbot_command_generator.py`
-
-The robot can select from multiple movement primitives.
-
-**Sharp movement primitives:**
-
-- `forward_pulse`
-- `backward_pulse`
-- `sharp_left`
-- `sharp_right`
-
-**Smooth movement primitives:**
-
-- `left_curve`
-- `right_curve`
-- `s_wave`
-- `slow_sway`
-
-The movement selection system uses a sharpness score derived from:
-
-- Current musical energy relative to the song.
-- Changes in energy.
-- Beat strength.
-- Extracted movement quality.
-
-Higher-energy passages generally favor sharper movements, while calmer passages generally favor smoother movements.
-
-However, this is not a fixed classification.
-
-A high-energy song can still produce smooth movements during quieter sections, while a calm song can produce sharp movements in response to strong accents or sudden changes.
-
-This allows the robot to respond to local musical characteristics rather than performing the same type of movement throughout an entire song.
-
-The system also discourages repetitive primitive selection to encourage movement variety.
-
-### 7. Weighted Spatial Exploration
-
-**File:** `src/motion/rosbot_command_generator.py`
-
-To encourage the robot to explore different parts of the stage, the system uses weighted destination selection.
-
-The stage is divided into five destination regions:
-
-| Region | Selection Weight |
-|---|---:|
+| Region | Base weight |
+| --- | ---: |
 | Centre | 50% |
 | Top left | 12.5% |
 | Top right | 12.5% |
 | Bottom left | 12.5% |
 | Bottom right | 12.5% |
 
-The centre is the preferred destination, but the robot can also travel toward different corners.
+**These are starting weights, not fixed visit frequencies or occupancy percentages.** The generator adjusts the effective region-selection probabilities using:
 
-The robot periodically selects a new destination according to these weights.
+1. **Distance weighting:** Nearby regions are generally favored relative to more distant regions.
+2. **Selection history:** Previously chosen destinations receive temporarily reduced weighting, with memory decay allowing them to become attractive again.
+3. **Consecutive-selection limits:** A region can be temporarily excluded after repeated consecutive selections.
 
-A small random offset is applied to each destination so the robot does not repeatedly target exactly the same coordinates.
+Once a region is selected, a target point is sampled from its cells. The robot attempts to reach that point subject to a travel timeout, then explores within that region for a randomly sampled dwell interval (default **5–15 seconds**). Actual time spent within a region can differ from the planned dwell duration because of travel, musical event timing, and boundary behavior.
 
-When traveling toward a destination, the system can generate a heading correction before executing an expressive movement primitive.
+### Randomness and reproducibility
 
-**Important:** These weights represent destination-selection probabilities, not guaranteed stage occupancy. The robot may not reach every selected region, particularly during short previews.
+`src/pipeline.py` generates a fresh random seed for each processed song using `secrets.randbits(64)`, and prints it in the terminal. This allows different runs of the same song to produce different simulated choreographies. To reproduce a particular performance in an experiment, retain the seed **and** the code/configuration version, and pass the same seed to the relevant generator.
 
-### 8. Boundary-Aware Motion
+Note that repeated runs overwrite files using the same names; printing a seed does not automatically create an archival copy.
 
-The robot operates within a predefined square stage.
+## Single-robot simulation
 
-The motion generator evaluates candidate trajectories and rejects movements that would cross the configured safety limit.
+With `NUM_ROBOTS = 1`, the pipeline calls `motion.rosbot_command_generator.generate_rosbot_commands()`, then:
 
-A safety margin is maintained between the robot's simulated centre and the stage boundary.
+- `analyze_region_occupancy()` measures simulated time in each of the five regions and 16 cells, physical region entries, and destination outcomes.
+- `visualize_motion()` renders a top-down trajectory PNG.
+- `animate_motion()` creates a dark-themed ROSbot MP4 with position, heading, current action, and original audio.
 
-For example:
+The velocity commands include the action label, start/end times, `linear_x`, and `angular_z`. The single-robot planner checks stage constraints using its simulated kinematic model.
 
-```python
-SAFETY_MARGIN = 0.40
-```
+## Multi-robot simulation
 
-This prevents the robot's simulated centre from approaching closer than 0.40 metres to the boundary.
+With `NUM_ROBOTS >= 2`, the same music analysis and motion parameters feed `multi_robot.planner.generate_multi_robot_commands()`. The generator:
 
-The current simulation uses a simplified kinematic model. Additional robot footprint, dynamics, and obstacle constraints will be required before physical deployment.
+- Creates separate robot states, random choices, and selection histories.
+- Places robots at separated initial positions within the available stage area.
+- Advances all robots on a shared simulation clock.
+- Checks proposed movements against stage constraints and the configured centre-to-centre separation.
+- Uses a yielding supervisor and can replan destinations after prolonged blocking.
+- Returns each robot's command history for rendering.
 
-### 9. ROSbot Command Generation
-
-The final movement decisions are converted into velocity commands compatible with a differential-drive-style robot model.
-
-Each command includes:
-
-```json
-{
-  "start_time": 2.0,
-  "end_time": 3.5,
-  "duration": 1.5,
-  "action": "left_curve",
-  "linear_x": 0.24,
-  "angular_z": 0.65
-}
-```
-
-These commands specify:
-
-- Start and end time
-- Movement duration
-- Selected movement primitive
-- Linear velocity
-- Angular velocity
-
-The command sequence is saved as JSON for simulation and potential future ROS integration.
-
-### 10. Trajectory Visualization and Animation
-
-**Files:**
-- `src/motion/motion_visualizer.py`
-- `src/motion/motion_animator.py`
-
-The visualizer integrates the generated velocity commands to produce a top-down representation of the robot's trajectory.
-
-The animator uses the same commands to generate an MP4 showing:
-
-- Robot position and orientation
-- Movement trajectory
-- Stage boundary
-- Current movement primitive
-- Linear and angular velocities
-- Original music synchronized with the animation
-
-The animation duration can be configured independently of the full song duration.
-
-## Installation
-
-### Requirements
-
-- Python 3.13
-- NumPy
-- librosa
-- Matplotlib
-- FFmpeg
-
-Install the Python dependencies:
-
-```bash
-py -m pip install numpy librosa matplotlib
-```
-
-FFmpeg must also be installed and accessible through the system PATH.
-
-Verify FFmpeg:
-
-```bash
-ffmpeg -version
-```
-
-## Running the Pipeline
-
-Place MP3 files in the `music/` directory.
-
-Open a terminal in the `src/` directory:
-
-```bash
-cd src
-```
-
-Run:
-
-```bash
-py pipeline.py
-```
-
-The pipeline will process the selected song, generate motion commands, and produce trajectory and animation outputs.
-
-## Configuration
-
-The main settings are located at the top of `src/pipeline.py`.
-
-### Audio and Preview Settings
+The initial illustrative collision geometry uses:
 
 ```python
-SONG = "16Shots.mp3"
-PREVIEW = 60
-FPS = 12
+ROBOT_RADIUS = 0.18
+EXTRA_CLEARANCE = 0.18
+TIME_STEP = 0.05
+MAX_YIELD_BEFORE_REPLAN = 3.0
 ```
 
-Set `SONG = None` to process all MP3 files in the music directory.
+This gives a **0.54 m requested centre-to-centre separation** for the simplified circular footprints. The simulator checks multiple robot pairs, but crowded scenarios can cause frequent yielding or prevent a robot from reaching its destination. A higher robot count is configurable, **not a guarantee that arbitrary numbers of robots fit or perform successfully**.
 
-Set `PREVIEW = 0` to animate the full song.
+The multi-robot visualizer creates a combined path PNG and a music-synchronized MP4 with ROSbot-style bodies. MP4 body colors indicate movement state: red = stopped, yellow = rotating, blue = backward, and turquoise = moving.
 
-### Musical Movement Timing
+> **Safety limitation:** The collision and boundary checks are simulation-level approximations, not certified collision avoidance or physical-robot safety guarantees. Real robot deployment would require validated footprints, dynamics, stopping distances, sensing/localization uncertainty, and hardware emergency-stop procedures.
 
-```python
-STRENGTH = 0.65
-MIN_MOVEMENT_GAP = 2.0
-STOP = 0.22
-```
+## Configuration reference
 
-- `STRENGTH`: Beat-strength threshold setting used by the accent selector.
-- `MIN_MOVEMENT_GAP`: Width of the movement-selection time window, in seconds.
-- `STOP`: Pause duration before the next selected movement change.
+Change these values at the top of `src/pipeline.py`:
 
-The accent selector uses song-relative beat strengths, so the configured strength value is not necessarily an absolute cutoff.
+| Setting | Default in the current pipeline | Meaning |
+| --- | --- | --- |
+| `NUM_ROBOTS` | `1` | `1` uses the solo planner; `2+` uses multi-robot planning |
+| `SONG` | `None` | Process all MP3 files, or specify one exact filename |
+| `PREVIEW` | `0` | MP4 seconds; `0` means full song |
+| `FPS` | `12` | Animation frames per second |
+| `STRENGTH` | `0.65` | Accent-selection strength setting |
+| `MIN_MOVEMENT_GAP` | `2.0` | Musical movement-event window in seconds |
+| `STOP` | `0.22` | Pause before the next selected movement |
+| `SAFETY_MARGIN` | `0.40` | Stage boundary margin (metres) |
+| `TARGET_RADIUS` | `0.35` | Arrival tolerance (metres) |
+| `TRAVEL_SPEED` | `0.32` | Base simulated travel speed (m/s) |
+| `DISTANCE_LAMBDA` | `0.35` | Distance penalty in region selection |
+| `VISIT_PENALTY` | `0.40` | Selection-history penalty strength |
+| `VISIT_MEMORY_DECAY` | `0.85` | Visit-history decay after selections |
+| `MAX_CONSECUTIVE_SELECTIONS` | `2` | Maximum consecutive region choices |
+| `MAX_TRAVEL_TIME` | `15.0` | Travel timeout threshold (seconds) |
+| `DWELL_MIN` / `DWELL_MAX` | `5.0` / `15.0` | Sampled exploration duration (seconds) |
+| `ROBOT_RADIUS` | `0.18` | Multi-robot illustrative radius (metres) |
+| `EXTRA_CLEARANCE` | `0.18` | Extra inter-robot clearance (metres) |
+| `TIME_STEP` | `0.05` | Multi-robot simulation step (seconds) |
+| `MAX_YIELD_BEFORE_REPLAN` | `3.0` | Blocked time before replan (seconds) |
 
-### Spatial Exploration
+These values are prototype parameters, not optimized or hardware-validated settings.
 
-```python
-REGION_WEIGHTS = {
-    "centre": 0.50,
-    "top_left": 0.125,
-    "top_right": 0.125,
-    "bottom_left": 0.125,
-    "bottom_right": 0.125,
-}
+## Output files
 
-SAFETY_MARGIN = 0.40
-TARGET_INTERVAL = 7.0
-TARGET_RADIUS = 0.35
-RANDOM_SEED = 42
-```
-
-- `REGION_WEIGHTS`: Destination-selection probabilities.
-- `SAFETY_MARGIN`: Minimum clearance from the stage boundary for the simulated robot centre.
-- `TARGET_INTERVAL`: Time between destination selections.
-- `TARGET_RADIUS`: Distance within which the robot is considered near its destination.
-- `RANDOM_SEED`: Controls reproducibility of randomized movement and destination selections.
-
-### Robot Speed
-
-```python
-TRAVEL_SPEED = 0.32
-```
-
-This controls the base linear speed used by the music-adaptive motion generator, in metres per second.
-
-## Output Files
-
-The pipeline generates files in the `output/` directory.
+Shared music-analysis results are written under `output/` regardless of the robot count:
 
 | Directory | Contents |
-|---|---|
-| `features/` | Extracted musical features |
-| `genres/` | Predicted genre |
-| `music_states/` | Beat information and time-varying musical states |
+| --- | --- |
+| `features/` | Extracted global musical features |
+| `genres/` | Heuristic genre classifications |
+| `music_states/` | Musical state and beat information |
 | `motion_timelines/` | Selected movement events |
-| `motion_parameters/` | Parameterized movements |
-| `rosbot_commands/` | Generated linear and angular velocity commands |
-| `visualizations/` | Top-down robot trajectory PNG |
-| `animations/` | MP4 simulation with original music |
+| `motion_parameters/` | Parameterized movement events |
 
-For example, a 60-second preview of `16Shots.mp3` produces:
+For **single-robot** runs, additional outputs include:
+
+| Directory | Contents |
+| --- | --- |
+| `rosbot_commands/` | Velocity-command JSON |
+| `region_analysis/` | Per-region/per-cell residence and target histories |
+| `visualizations/` | Trajectory PNG |
+| `animations/` | MP4 with the original music |
+
+For **multi-robot** runs, the unified pipeline saves the visual results in:
 
 ```text
-output/animations/16Shots_animation_60s.mp4
+output/multi_robot/
+├── visualizations/       # Combined robot trajectories (PNG)
+└── animations/           # Multiple robots moving to the music (MP4)
 ```
 
-## Current Development Status
+The multi-robot planner also generates command data internally, but the unified pipeline uses a temporary directory for its command JSON and discards it after rendering. The printed terminal summary includes robot count, minimum observed simulated separation, yielding events, and target-arrival counts.
 
-The current prototype supports:
+## Evaluating results
 
-- [x] MP3 audio feature extraction
-- [x] Beat detection and beat-strength analysis
-- [x] Heuristic genre classification
-- [x] Time-varying musical state extraction
-- [x] Selective musical accent detection
-- [x] Movement generation across multiple beats
-- [x] Multiple sharp and smooth movement primitives
-- [x] Music-adaptive sharpness scoring
-- [x] Weighted spatial destination selection
-- [x] Boundary-aware trajectory checking
-- [x] ROSbot velocity command generation
-- [x] Top-down trajectory visualization
-- [x] MP4 animation synchronized with music
+Useful measures for comparing performances include:
 
-These features are implemented in the current simulation prototype; their choreographic quality and effectiveness are still being evaluated.
+- Whether the same song produces varied trajectories across random seeds.
+- Whether strong versus smooth musical passages produce different motion qualities.
+- How often each region is selected versus how long the robot physically occupies it.
+- Destination arrival, timeout, and replanning behavior.
+- With multiple robots, minimum simulated separation, time spent yielding, and how well robots share stage space.
 
-## Current Limitations
+A high destination-selection weight does **not** imply a corresponding proportion of stage occupancy. The project distinguishes region-choice statistics from actual simulated travel and residence.
 
-The project is still under active development.
+## Current limitations and future work
 
-**1. Spatial coverage**
+RoboDance is a developing 2D simulation. Music-to-motion mappings and genre labels are heuristic; movement expressiveness remains limited by differential-drive kinematics. Multi-robot behavior currently emphasizes independent music-responsive improvisation with spatial coordination, rather than explicit choreographic relationships.
 
-Weighted destination selection does not guarantee that the robot will explore the entire stage. Its ability to reach destinations depends on movement duration, heading, velocity, and target-selection timing.
+Potential next steps include improving navigation and deadlock handling, introducing deliberate **mirroring, synchronization, canon, and call-and-response**, evaluating choreography with human dancers, exploring musical section-aware decisions, and validating ROS-based execution on physical mobile robots.
 
-**2. Movement expressiveness**
+## Research goal
 
-The current movement vocabulary is based on combinations of linear and angular velocity. These movements approximate dance qualities but do not reproduce the full expressiveness of human dance.
-
-**3. Musical interpretation**
-
-The sharpness score and movement selection use heuristics rather than a trained model. The relationship between musical characteristics and movement quality requires further evaluation.
-
-**4. Simulation versus physical execution**
-
-The current system uses simplified robot kinematics. Physical deployment will require additional testing for robot dimensions, acceleration limits, control accuracy, and safety.
-
-**5. Genre classification**
-
-The genre classifier is heuristic and may not accurately identify all musical styles.
-
-## Future Work
-
-Planned improvements include:
-
-1. **Spatial exploration evaluation:** Measure how evenly the robot explores the stage and whether it reaches selected destinations.
-2. **Improved movement transitions:** Create smoother transitions between primitives and reduce abrupt navigation corrections.
-3. **Musical section awareness:** Incorporate changes in musical structure to guide larger choreographic decisions.
-4. **Expanded movement vocabulary:** Introduce more expressive motion patterns and combinations.
-5. **Dance-style adaptation:** Explore movement choices inspired by contemporary, hip-hop, jazz, and other dance styles.
-6. **Human evaluation:** Compare generated robot movement with how dancers interpret selected musical passages.
-7. **Physical ROSbot integration:** Translate simulated commands into executable robot control with appropriate safety constraints.
-8. **Potential extension to other robots:** Investigate whether the framework can be adapted to platforms with more expressive movement capabilities.
-
-## Research Goal
-
-The broader goal of RoboDance is to investigate how musical features can guide robotic movement decisions that create the appearance of meaningful dance improvisation.
-
-The project focuses on moving beyond simple beat synchronization toward a system that responds to musical dynamics, changes movement quality, and makes spatial decisions while respecting physical constraints.
-
-The ultimate objective is not to replicate human dance exactly, but to explore how a robot can demonstrate musical responsiveness and expressive variation through autonomous movement.
+The goal is to understand how robots can exhibit musical responsiveness and expressive variation through autonomous, probabilistic movement decisions, individually and as a group. The intention is not to replicate human dance exactly, but to investigate how rhythmic structure, movement quality, space, and inter-robot coordination shape robotic improvisation.
