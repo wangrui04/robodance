@@ -1,0 +1,10 @@
+{
+    "song_name": "madness.mp3",
+    "predicted_genre": "hiphop",
+    "features_used": {
+        "tempo_bpm": 143.55,
+        "avg_energy": 0.2189,
+        "brightness": 1601.74,
+        "num_beats": 469
+    }
+}

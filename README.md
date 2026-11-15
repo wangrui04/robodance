@@ -30,7 +30,7 @@ robodance/
 │
 ├── src/
 │   ├── pipeline.py
-│   ├── music/
+│   ├── music_analysis/
 │   │   ├── feature_extractor.py
 │   │   ├── genre_classifier.py
 │   │   ├── music_state_extractor.py
@@ -58,7 +58,7 @@ robodance/
 └── README.md
 ```
 
-The `src/music/` directory contains audio analysis and music-state modules.
+The `src/music_analysis/` directory contains audio analysis and music-state modules.
 The `src/motion/` directory contains planning, command generation, and visualization
 modules. Its `basic/` subdirectory contains the earlier beat-based simulation.
 
@@ -97,7 +97,7 @@ Trajectory PNG       MP4 Animation
 
 ### 1. Music Feature Extraction
 
-**File:** `src/music/feature_extractor.py`
+**File:** `src/music_analysis/feature_extractor.py`
 
 The system uses `librosa` to analyze an input audio file and extract:
 
@@ -110,7 +110,7 @@ These features provide information about the overall musical character.
 
 ### 2. Genre Classification
 
-**File:** `src/music/genre_classifier.py`
+**File:** `src/music_analysis/genre_classifier.py`
 
 A heuristic classifier uses extracted musical features to estimate the genre or movement style associated with a song.
 
@@ -129,7 +129,7 @@ Instead, it considers how the musical characteristics change throughout the song
 
 ### 3. Music State Extraction
 
-**File:** `src/music/music_state_extractor.py`
+**File:** `src/music_analysis/music_state_extractor.py`
 
 The system analyzes the music over time to identify changing musical characteristics.
 

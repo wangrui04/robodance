@@ -1,0 +1,10 @@
+{
+    "song_name": "qilin.mp3",
+    "predicted_genre": "edm",
+    "features_used": {
+        "tempo_bpm": 143.55,
+        "avg_energy": 0.26,
+        "brightness": 2735.09,
+        "num_beats": 437
+    }
+}

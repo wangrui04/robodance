@@ -1,0 +1,421 @@
+{
+  "song_name": "bad_guy.mp3",
+  "duration": 194.26,
+  "note": "Occupancy is estimated from commanded 2D motion at 0.025-second intervals, not measured hardware telemetry.",
+  "grid_rows": 4,
+  "grid_cols": 4,
+  "region_cells": {
+    "top_left": [
+      "r1c1",
+      "r1c2",
+      "r2c1"
+    ],
+    "top_right": [
+      "r1c3",
+      "r1c4",
+      "r2c4"
+    ],
+    "centre": [
+      "r2c2",
+      "r2c3",
+      "r3c2",
+      "r3c3"
+    ],
+    "bottom_left": [
+      "r3c1",
+      "r4c1",
+      "r4c2"
+    ],
+    "bottom_right": [
+      "r3c4",
+      "r4c3",
+      "r4c4"
+    ]
+  },
+  "region_summary": {
+    "top_left": {
+      "selected_count": 1,
+      "reached_count": 1,
+      "timeout_count": 0,
+      "physical_entries": 1,
+      "time_spent_seconds": 25.02,
+      "time_spent_percent": 12.88
+    },
+    "top_right": {
+      "selected_count": 1,
+      "reached_count": 1,
+      "timeout_count": 0,
+      "physical_entries": 2,
+      "time_spent_seconds": 3.377,
+      "time_spent_percent": 1.74
+    },
+    "centre": {
+      "selected_count": 4,
+      "reached_count": 4,
+      "timeout_count": 0,
+      "physical_entries": 5,
+      "time_spent_seconds": 59.177,
+      "time_spent_percent": 30.46
+    },
+    "bottom_left": {
+      "selected_count": 3,
+      "reached_count": 3,
+      "timeout_count": 0,
+      "physical_entries": 4,
+      "time_spent_seconds": 61.199,
+      "time_spent_percent": 31.5
+    },
+    "bottom_right": {
+      "selected_count": 3,
+      "reached_count": 3,
+      "timeout_count": 0,
+      "physical_entries": 2,
+      "time_spent_seconds": 45.488,
+      "time_spent_percent": 23.42
+    }
+  },
+  "cell_occupancy_seconds": {
+    "r1c1": 10.656,
+    "r1c2": 2.886,
+    "r1c3": 1.264,
+    "r1c4": 0.0,
+    "r2c1": 11.477,
+    "r2c2": 3.608,
+    "r2c3": 16.056,
+    "r2c4": 2.113,
+    "r3c1": 17.827,
+    "r3c2": 28.285,
+    "r3c3": 11.227,
+    "r3c4": 17.254,
+    "r4c1": 24.305,
+    "r4c2": 19.066,
+    "r4c3": 8.95,
+    "r4c4": 19.283
+  },
+  "target_history": [
+    {
+      "time": 0.65,
+      "region": "centre",
+      "x": 0.2357,
+      "y": 0.2577,
+      "cell": "r2c3",
+      "selection_probability": 0.640485,
+      "probabilities": {
+        "centre": 0.640485,
+        "top_left": 0.089879,
+        "top_right": 0.089879,
+        "bottom_left": 0.089879,
+        "bottom_right": 0.089879
+      },
+      "outcome": "reached",
+      "arrival_time": 0.65,
+      "travel_time": 0.0,
+      "planned_dwell_seconds": 10.4343,
+      "dwell_started_at": 0.65,
+      "dwell_ended_at": 13.978
+    },
+    {
+      "time": 13.978,
+      "region": "bottom_left",
+      "x": -0.4544,
+      "y": -1.2922,
+      "cell": "r4c2",
+      "selection_probability": 0.166741,
+      "probabilities": {
+        "centre": 0.466738,
+        "top_left": 0.105787,
+        "top_right": 0.102985,
+        "bottom_left": 0.166741,
+        "bottom_right": 0.157749
+      },
+      "outcome": "reached",
+      "arrival_time": 15.105,
+      "travel_time": 1.127,
+      "planned_dwell_seconds": 14.1864,
+      "dwell_started_at": 15.105,
+      "dwell_ended_at": 33.53
+    },
+    {
+      "time": 33.53,
+      "region": "bottom_left",
+      "x": -1.1076,
+      "y": -0.5801,
+      "cell": "r3c1",
+      "selection_probability": 0.189075,
+      "probabilities": {
+        "centre": 0.455327,
+        "top_left": 0.138955,
+        "top_right": 0.089916,
+        "bottom_left": 0.189075,
+        "bottom_right": 0.126726
+      },
+      "outcome": "reached",
+      "arrival_time": 45.756,
+      "travel_time": 12.226,
+      "planned_dwell_seconds": 6.9449,
+      "dwell_started_at": 45.756,
+      "dwell_ended_at": 54.869
+    },
+    {
+      "time": 54.869,
+      "region": "centre",
+      "x": 0.2844,
+      "y": 0.3438,
+      "cell": "r2c3",
+      "selection_probability": 0.589301,
+      "probabilities": {
+        "centre": 0.589301,
+        "top_left": 0.129418,
+        "top_right": 0.112544,
+        "bottom_left": 0.0,
+        "bottom_right": 0.168737
+      },
+      "outcome": "reached",
+      "arrival_time": 58.155,
+      "travel_time": 3.286,
+      "planned_dwell_seconds": 5.3397,
+      "dwell_started_at": 58.155,
+      "dwell_ended_at": 64.435
+    },
+    {
+      "time": 64.435,
+      "region": "centre",
+      "x": -0.1633,
+      "y": -0.2113,
+      "cell": "r3c2",
+      "selection_probability": 0.468863,
+      "probabilities": {
+        "centre": 0.468863,
+        "top_left": 0.151779,
+        "top_right": 0.173496,
+        "bottom_left": 0.067255,
+        "bottom_right": 0.138607
+      },
+      "outcome": "reached",
+      "arrival_time": 71.762,
+      "travel_time": 7.327,
+      "planned_dwell_seconds": 5.5019,
+      "dwell_started_at": 71.762,
+      "dwell_ended_at": 77.717
+    },
+    {
+      "time": 77.717,
+      "region": "top_left",
+      "x": -1.1382,
+      "y": 1.3335,
+      "cell": "r1c1",
+      "selection_probability": 0.28565,
+      "probabilities": {
+        "centre": 0.0,
+        "top_left": 0.28565,
+        "top_right": 0.211592,
+        "bottom_left": 0.244514,
+        "bottom_right": 0.258244
+      },
+      "outcome": "reached",
+      "arrival_time": 88.875,
+      "travel_time": 11.158,
+      "planned_dwell_seconds": 6.8175,
+      "dwell_started_at": 88.875,
+      "dwell_ended_at": 104.652
+    },
+    {
+      "time": 104.652,
+      "region": "centre",
+      "x": 0.2509,
+      "y": -0.206,
+      "cell": "r3c3",
+      "selection_probability": 0.371327,
+      "probabilities": {
+        "centre": 0.371327,
+        "top_left": 0.2308,
+        "top_right": 0.182967,
+        "bottom_left": 0.097438,
+        "bottom_right": 0.117467
+      },
+      "outcome": "reached",
+      "arrival_time": 111.538,
+      "travel_time": 6.886,
+      "planned_dwell_seconds": 9.4987,
+      "dwell_started_at": 111.538,
+      "dwell_ended_at": 121.765
+    },
+    {
+      "time": 121.765,
+      "region": "bottom_right",
+      "x": 1.3066,
+      "y": -1.0711,
+      "cell": "r4c4",
+      "selection_probability": 0.179038,
+      "probabilities": {
+        "centre": 0.331439,
+        "top_left": 0.133556,
+        "top_right": 0.137794,
+        "bottom_left": 0.218172,
+        "bottom_right": 0.179038
+      },
+      "outcome": "reached",
+      "arrival_time": 130.439,
+      "travel_time": 8.674,
+      "planned_dwell_seconds": 6.2992,
+      "dwell_started_at": 130.439,
+      "dwell_ended_at": 137.764
+    },
+    {
+      "time": 137.764,
+      "region": "bottom_right",
+      "x": 1.3602,
+      "y": -0.6176,
+      "cell": "r3c4",
+      "selection_probability": 0.250047,
+      "probabilities": {
+        "centre": 0.351607,
+        "top_left": 0.093208,
+        "top_right": 0.185214,
+        "bottom_left": 0.119923,
+        "bottom_right": 0.250047
+      },
+      "outcome": "reached",
+      "arrival_time": 140.655,
+      "travel_time": 2.891,
+      "planned_dwell_seconds": 7.905,
+      "dwell_started_at": 140.655,
+      "dwell_ended_at": 151.324
+    },
+    {
+      "time": 151.324,
+      "region": "bottom_left",
+      "x": -0.9945,
+      "y": -0.4747,
+      "cell": "r3c1",
+      "selection_probability": 0.141224,
+      "probabilities": {
+        "centre": 0.500381,
+        "top_left": 0.121993,
+        "top_right": 0.236402,
+        "bottom_left": 0.141224,
+        "bottom_right": 0.0
+      },
+      "outcome": "reached",
+      "arrival_time": 159.092,
+      "travel_time": 7.768,
+      "planned_dwell_seconds": 6.9295,
+      "dwell_started_at": 159.092,
+      "dwell_ended_at": 167.3
+    },
+    {
+      "time": 167.3,
+      "region": "bottom_right",
+      "x": 0.4112,
+      "y": -1.4104,
+      "cell": "r4c3",
+      "selection_probability": 0.088483,
+      "probabilities": {
+        "centre": 0.438555,
+        "top_left": 0.155791,
+        "top_right": 0.120348,
+        "bottom_left": 0.196824,
+        "bottom_right": 0.088483
+      },
+      "outcome": "reached",
+      "arrival_time": 175.091,
+      "travel_time": 7.791,
+      "planned_dwell_seconds": 8.0753,
+      "dwell_started_at": 175.091,
+      "dwell_ended_at": 183.322
+    },
+    {
+      "time": 183.322,
+      "region": "top_right",
+      "x": 0.5251,
+      "y": 1.3923,
+      "cell": "r1c3",
+      "selection_probability": 0.180999,
+      "probabilities": {
+        "centre": 0.474119,
+        "top_left": 0.098221,
+        "top_right": 0.180999,
+        "bottom_left": 0.100741,
+        "bottom_right": 0.145919
+      },
+      "outcome": "reached",
+      "arrival_time": 194.04,
+      "travel_time": 10.718,
+      "planned_dwell_seconds": 12.6489,
+      "dwell_started_at": 194.04,
+      "dwell_ended_at": 194.26
+    }
+  ],
+  "region_transitions": [
+    {
+      "time": 0.0,
+      "from": null,
+      "to": "centre"
+    },
+    {
+      "time": 14.027,
+      "from": "centre",
+      "to": "bottom_left"
+    },
+    {
+      "time": 55.6501,
+      "from": "bottom_left",
+      "to": "centre"
+    },
+    {
+      "time": 79.2055,
+      "from": "centre",
+      "to": "bottom_left"
+    },
+    {
+      "time": 83.1854,
+      "from": "bottom_left",
+      "to": "top_left"
+    },
+    {
+      "time": 108.205,
+      "from": "top_left",
+      "to": "centre"
+    },
+    {
+      "time": 124.0853,
+      "from": "centre",
+      "to": "bottom_left"
+    },
+    {
+      "time": 124.9015,
+      "from": "bottom_left",
+      "to": "bottom_right"
+    },
+    {
+      "time": 153.7008,
+      "from": "bottom_right",
+      "to": "centre"
+    },
+    {
+      "time": 158.8682,
+      "from": "centre",
+      "to": "bottom_left"
+    },
+    {
+      "time": 173.6476,
+      "from": "bottom_left",
+      "to": "bottom_right"
+    },
+    {
+      "time": 190.3359,
+      "from": "bottom_right",
+      "to": "top_right"
+    },
+    {
+      "time": 192.449,
+      "from": "top_right",
+      "to": "centre"
+    },
+    {
+      "time": 192.9959,
+      "from": "centre",
+      "to": "top_right"
+    }
+  ]
+}

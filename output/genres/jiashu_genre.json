@@ -1,0 +1,10 @@
+{
+    "song_name": "jiashu.mp3",
+    "predicted_genre": "pop",
+    "features_used": {
+        "tempo_bpm": 123.05,
+        "avg_energy": 0.3027,
+        "brightness": 2253.14,
+        "num_beats": 418
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "song_name": "derniere_danse.mp3",
+    "predicted_genre": "pop",
+    "features_used": {
+        "tempo_bpm": 107.67,
+        "avg_energy": 0.1618,
+        "brightness": 2545.49,
+        "num_beats": 416
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "song_name": "bad_guy.mp3",
+    "predicted_genre": "edm",
+    "features_used": {
+        "tempo_bpm": 136.0,
+        "avg_energy": 0.3079,
+        "brightness": 1436.96,
+        "num_beats": 424
+    }
+}

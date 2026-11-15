@@ -1,0 +1,1137 @@
+{
+  "song_name": "derniere_danse.mp3",
+  "duration": 238.56,
+  "predicted_genre": "pop",
+  "pre_beat_stop": 0.22,
+  "boundary": {
+    "x_min": -2.0,
+    "x_max": 2.0,
+    "y_min": -2.0,
+    "y_max": 2.0
+  },
+  "num_detected_beats": 427,
+  "num_strong_beats": 80,
+  "num_motion_events": 80,
+  "motion_timeline": [
+    {
+      "time": 5.364,
+      "end_time": 6.839,
+      "duration": 1.475,
+      "beat_strength": 0.7144,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0629,
+        "brightness": 1217.76,
+        "energy_change": 0.0018,
+        "movement_quality": "smooth",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 7.059,
+      "end_time": 8.534,
+      "duration": 1.475,
+      "beat_strength": 0.3131,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1436,
+        "brightness": 1655.42,
+        "energy_change": 0.054,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 8.754,
+      "end_time": 10.809,
+      "duration": 2.055,
+      "beat_strength": 0.5544,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1011,
+        "brightness": 1620.17,
+        "energy_change": 0.0243,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 11.029,
+      "end_time": 14.78,
+      "duration": 3.751,
+      "beat_strength": 0.4643,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.185,
+        "brightness": 2238.5,
+        "energy_change": 0.0827,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 15.0,
+      "end_time": 15.895,
+      "duration": 0.895,
+      "beat_strength": 0.3888,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.1389,
+        "brightness": 1622.36,
+        "energy_change": 0.0115,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 16.115,
+      "end_time": 18.17,
+      "duration": 2.055,
+      "beat_strength": 0.3846,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1759,
+        "brightness": 1911.19,
+        "energy_change": 0.037,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 18.39,
+      "end_time": 23.255,
+      "duration": 4.865,
+      "beat_strength": 0.3858,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1134,
+        "brightness": 1791.24,
+        "energy_change": -0.0188,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 23.475,
+      "end_time": 26.645,
+      "duration": 3.17,
+      "beat_strength": 0.3154,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1086,
+        "brightness": 959.26,
+        "energy_change": 0.003,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 26.865,
+      "end_time": 28.944,
+      "duration": 2.079,
+      "beat_strength": 0.4024,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.0805,
+        "brightness": 750.29,
+        "energy_change": -0.0185,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 29.164,
+      "end_time": 32.241,
+      "duration": 3.077,
+      "beat_strength": 0.5073,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.1057,
+        "brightness": 4160.01,
+        "energy_change": 0.0238,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 32.461,
+      "end_time": 33.913,
+      "duration": 1.452,
+      "beat_strength": 1.0,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.0823,
+        "brightness": 3336.23,
+        "energy_change": 0.0375,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 34.133,
+      "end_time": 36.839,
+      "duration": 2.706,
+      "beat_strength": 0.8446,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.0975,
+        "brightness": 2393.79,
+        "energy_change": 0.0188,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 37.059,
+      "end_time": 38.0,
+      "duration": 0.941,
+      "beat_strength": 0.3162,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0943,
+        "brightness": 3882.69,
+        "energy_change": 0.0303,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 38.22,
+      "end_time": 40.229,
+      "duration": 2.009,
+      "beat_strength": 0.3643,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.0817,
+        "brightness": 3116.68,
+        "energy_change": -0.0126,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 40.449,
+      "end_time": 43.666,
+      "duration": 3.217,
+      "beat_strength": 0.5521,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0499,
+        "brightness": 1785.66,
+        "energy_change": -0.0421,
+        "movement_quality": "smooth",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 43.886,
+      "end_time": 47.59,
+      "duration": 3.704,
+      "beat_strength": 0.4882,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1183,
+        "brightness": 3041.3,
+        "energy_change": 0.0282,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 47.81,
+      "end_time": 52.118,
+      "duration": 4.308,
+      "beat_strength": 0.5991,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1585,
+        "brightness": 1720.05,
+        "energy_change": 0.0246,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 52.338,
+      "end_time": 53.836,
+      "duration": 1.498,
+      "beat_strength": 0.5337,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.149,
+        "brightness": 1874.62,
+        "energy_change": 0.0266,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 54.056,
+      "end_time": 56.622,
+      "duration": 2.566,
+      "beat_strength": 0.288,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1433,
+        "brightness": 2866.49,
+        "energy_change": 0.0145,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 56.842,
+      "end_time": 61.174,
+      "duration": 4.332,
+      "beat_strength": 0.5736,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.1452,
+        "brightness": 1672.83,
+        "energy_change": 0.0262,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 61.394,
+      "end_time": 70.183,
+      "duration": 8.789,
+      "beat_strength": 0.46,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1122,
+        "brightness": 2782.4,
+        "energy_change": 0.0298,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 70.403,
+      "end_time": 74.688,
+      "duration": 4.285,
+      "beat_strength": 0.3296,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.165,
+        "brightness": 2821.66,
+        "energy_change": 0.0216,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 74.908,
+      "end_time": 79.192,
+      "duration": 4.284,
+      "beat_strength": 0.331,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1592,
+        "brightness": 2527.55,
+        "energy_change": 0.0172,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 79.412,
+      "end_time": 95.98,
+      "duration": 16.568,
+      "beat_strength": 0.3085,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1546,
+        "brightness": 2862.08,
+        "energy_change": 0.0197,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 96.2,
+      "end_time": 104.386,
+      "duration": 8.186,
+      "beat_strength": 0.3218,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.1549,
+        "brightness": 2749.33,
+        "energy_change": -0.0302,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 104.606,
+      "end_time": 106.638,
+      "duration": 2.032,
+      "beat_strength": 0.739,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1977,
+        "brightness": 2030.66,
+        "energy_change": 0.0359,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 106.858,
+      "end_time": 108.891,
+      "duration": 2.033,
+      "beat_strength": 0.5134,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1717,
+        "brightness": 1951.73,
+        "energy_change": -0.0349,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 109.111,
+      "end_time": 111.12,
+      "duration": 2.009,
+      "beat_strength": 0.3577,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1533,
+        "brightness": 2916.31,
+        "energy_change": -0.0034,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 111.34,
+      "end_time": 112.234,
+      "duration": 0.894,
+      "beat_strength": 0.3299,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1679,
+        "brightness": 2751.23,
+        "energy_change": 0.0076,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 112.454,
+      "end_time": 114.487,
+      "duration": 2.033,
+      "beat_strength": 0.6951,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.1236,
+        "brightness": 2106.67,
+        "energy_change": -0.0443,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 114.707,
+      "end_time": 116.716,
+      "duration": 2.009,
+      "beat_strength": 0.7466,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1666,
+        "brightness": 2469.36,
+        "energy_change": 0.0034,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 116.936,
+      "end_time": 118.968,
+      "duration": 2.032,
+      "beat_strength": 0.5165,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1536,
+        "brightness": 2813.62,
+        "energy_change": -0.019,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 119.188,
+      "end_time": 121.22,
+      "duration": 2.032,
+      "beat_strength": 0.5065,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1832,
+        "brightness": 2821.29,
+        "energy_change": 0.017,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 121.44,
+      "end_time": 122.335,
+      "duration": 0.895,
+      "beat_strength": 0.5979,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1588,
+        "brightness": 2673.09,
+        "energy_change": -0.0345,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 122.555,
+      "end_time": 124.007,
+      "duration": 1.452,
+      "beat_strength": 0.5093,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.1824,
+        "brightness": 2699.65,
+        "energy_change": 0.007,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 124.227,
+      "end_time": 126.816,
+      "duration": 2.589,
+      "beat_strength": 0.5192,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.182,
+        "brightness": 3074.85,
+        "energy_change": -0.0004,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 127.036,
+      "end_time": 132.993,
+      "duration": 5.957,
+      "beat_strength": 0.4773,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1896,
+        "brightness": 2446.24,
+        "energy_change": 0.0295,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 133.213,
+      "end_time": 135.779,
+      "duration": 2.566,
+      "beat_strength": 0.3539,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1928,
+        "brightness": 3132.08,
+        "energy_change": -0.0129,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 135.999,
+      "end_time": 136.894,
+      "duration": 0.895,
+      "beat_strength": 0.3298,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1966,
+        "brightness": 2635.66,
+        "energy_change": 0.0025,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 137.114,
+      "end_time": 138.589,
+      "duration": 1.475,
+      "beat_strength": 0.3204,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.2115,
+        "brightness": 2873.19,
+        "energy_change": 0.0149,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 138.809,
+      "end_time": 140.261,
+      "duration": 1.452,
+      "beat_strength": 0.3613,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.2065,
+        "brightness": 2866.91,
+        "energy_change": -0.0064,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 140.481,
+      "end_time": 142.49,
+      "duration": 2.009,
+      "beat_strength": 0.4467,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1959,
+        "brightness": 2979.99,
+        "energy_change": -0.0106,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 142.71,
+      "end_time": 144.742,
+      "duration": 2.032,
+      "beat_strength": 0.3228,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1978,
+        "brightness": 2890.25,
+        "energy_change": -0.0035,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 144.962,
+      "end_time": 145.857,
+      "duration": 0.895,
+      "beat_strength": 0.3214,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.2057,
+        "brightness": 2816.39,
+        "energy_change": 0.0179,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 146.077,
+      "end_time": 148.086,
+      "duration": 2.009,
+      "beat_strength": 0.3495,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.2087,
+        "brightness": 3055.91,
+        "energy_change": 0.003,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 148.306,
+      "end_time": 151.43,
+      "duration": 3.124,
+      "beat_strength": 0.3006,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1826,
+        "brightness": 3026.39,
+        "energy_change": -0.0239,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 151.65,
+      "end_time": 153.682,
+      "duration": 2.032,
+      "beat_strength": 0.3039,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1939,
+        "brightness": 2936.23,
+        "energy_change": -0.0069,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 153.902,
+      "end_time": 154.796,
+      "duration": 0.894,
+      "beat_strength": 0.4128,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.2123,
+        "brightness": 2810.59,
+        "energy_change": 0.0176,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 155.016,
+      "end_time": 157.026,
+      "duration": 2.01,
+      "beat_strength": 0.3198,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.2076,
+        "brightness": 2809.26,
+        "energy_change": -0.0047,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 157.246,
+      "end_time": 158.14,
+      "duration": 0.894,
+      "beat_strength": 0.4213,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.1921,
+        "brightness": 2968.81,
+        "energy_change": -0.0079,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 158.36,
+      "end_time": 160.392,
+      "duration": 2.032,
+      "beat_strength": 0.3813,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1936,
+        "brightness": 2673.07,
+        "energy_change": 0.0015,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 160.612,
+      "end_time": 162.622,
+      "duration": 2.01,
+      "beat_strength": 0.3898,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1999,
+        "brightness": 2526.09,
+        "energy_change": 0.0002,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 162.842,
+      "end_time": 165.408,
+      "duration": 2.566,
+      "beat_strength": 0.433,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1924,
+        "brightness": 2699.53,
+        "energy_change": -0.0006,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 165.628,
+      "end_time": 167.683,
+      "duration": 2.055,
+      "beat_strength": 0.4893,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.0835,
+        "brightness": 2276.7,
+        "energy_change": -0.0859,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 167.903,
+      "end_time": 168.775,
+      "duration": 0.872,
+      "beat_strength": 0.3315,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.129,
+        "brightness": 2374.56,
+        "energy_change": 0.0681,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 168.995,
+      "end_time": 170.447,
+      "duration": 1.452,
+      "beat_strength": 0.349,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1836,
+        "brightness": 1822.24,
+        "energy_change": 0.0545,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 170.667,
+      "end_time": 172.119,
+      "duration": 1.452,
+      "beat_strength": 0.397,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.0692,
+        "brightness": 2682.16,
+        "energy_change": -0.0658,
+        "movement_quality": "smooth",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 172.339,
+      "end_time": 173.814,
+      "duration": 1.475,
+      "beat_strength": 0.403,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1553,
+        "brightness": 3650.91,
+        "energy_change": 0.0861,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 174.034,
+      "end_time": 177.691,
+      "duration": 3.657,
+      "beat_strength": 0.38,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1936,
+        "brightness": 2857.71,
+        "energy_change": 0.0081,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 177.911,
+      "end_time": 178.806,
+      "duration": 0.895,
+      "beat_strength": 0.318,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.2067,
+        "brightness": 2859.74,
+        "energy_change": 0.0362,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 179.026,
+      "end_time": 180.362,
+      "duration": 1.336,
+      "beat_strength": 0.3091,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.218,
+        "brightness": 2512.24,
+        "energy_change": 0.0113,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 180.582,
+      "end_time": 184.68,
+      "duration": 4.098,
+      "beat_strength": 0.5704,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.1077,
+        "brightness": 3274.69,
+        "energy_change": 0.002,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 184.9,
+      "end_time": 190.532,
+      "duration": 5.632,
+      "beat_strength": 0.4245,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1332,
+        "brightness": 3193.49,
+        "energy_change": 0.0252,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 190.752,
+      "end_time": 193.342,
+      "duration": 2.59,
+      "beat_strength": 0.41,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.1947,
+        "brightness": 3103.55,
+        "energy_change": -0.0376,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 193.562,
+      "end_time": 194.456,
+      "duration": 0.894,
+      "beat_strength": 0.4708,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.1969,
+        "brightness": 3088.94,
+        "energy_change": 0.0269,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 194.676,
+      "end_time": 197.242,
+      "duration": 2.566,
+      "beat_strength": 0.4685,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1884,
+        "brightness": 3268.51,
+        "energy_change": -0.0085,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 197.462,
+      "end_time": 198.357,
+      "duration": 0.895,
+      "beat_strength": 0.358,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.2004,
+        "brightness": 2778.9,
+        "energy_change": -0.002,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 198.577,
+      "end_time": 201.701,
+      "duration": 3.124,
+      "beat_strength": 0.4018,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.2041,
+        "brightness": 2903.04,
+        "energy_change": -0.009,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 201.921,
+      "end_time": 202.815,
+      "duration": 0.894,
+      "beat_strength": 0.448,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.193,
+        "brightness": 2894.72,
+        "energy_change": -0.01,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 203.035,
+      "end_time": 205.625,
+      "duration": 2.59,
+      "beat_strength": 0.3191,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.2046,
+        "brightness": 3022.88,
+        "energy_change": 0.0115,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 205.845,
+      "end_time": 206.739,
+      "duration": 0.894,
+      "beat_strength": 0.3037,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.1877,
+        "brightness": 3079.37,
+        "energy_change": -0.0044,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 206.959,
+      "end_time": 210.64,
+      "duration": 3.681,
+      "beat_strength": 0.359,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.193,
+        "brightness": 3125.07,
+        "energy_change": 0.0054,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 210.86,
+      "end_time": 215.099,
+      "duration": 4.239,
+      "beat_strength": 0.288,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.2069,
+        "brightness": 3011.03,
+        "energy_change": -0.009,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 215.319,
+      "end_time": 220.671,
+      "duration": 5.352,
+      "beat_strength": 0.2925,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.2126,
+        "brightness": 3111.75,
+        "energy_change": -0.0088,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 220.891,
+      "end_time": 225.13,
+      "duration": 4.239,
+      "beat_strength": 0.3435,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.2205,
+        "brightness": 2949.25,
+        "energy_change": -0.0052,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 225.35,
+      "end_time": 229.054,
+      "duration": 3.704,
+      "beat_strength": 0.3257,
+      "action": "forward_pulse",
+      "source": {
+        "energy": 0.218,
+        "brightness": 2697.81,
+        "energy_change": -0.002,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 229.274,
+      "end_time": 231.283,
+      "duration": 2.009,
+      "beat_strength": 0.4324,
+      "action": "left_curve",
+      "source": {
+        "energy": 0.143,
+        "brightness": 1534.29,
+        "energy_change": 0.019,
+        "movement_quality": "flowing",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 231.503,
+      "end_time": 233.512,
+      "duration": 2.009,
+      "beat_strength": 0.6865,
+      "action": "s_wave",
+      "source": {
+        "energy": 0.1959,
+        "brightness": 1469.91,
+        "energy_change": 0.0336,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 233.732,
+      "end_time": 235.184,
+      "duration": 1.452,
+      "beat_strength": 0.5178,
+      "action": "backward_pulse",
+      "source": {
+        "energy": 0.204,
+        "brightness": 1536.0,
+        "energy_change": 0.0174,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    },
+    {
+      "time": 235.404,
+      "end_time": 238.34,
+      "duration": 2.936,
+      "beat_strength": 0.5251,
+      "action": "right_curve",
+      "source": {
+        "energy": 0.2603,
+        "brightness": 1797.26,
+        "energy_change": 0.0563,
+        "movement_quality": "strong",
+        "genre": "pop"
+      }
+    }
+  ]
+}

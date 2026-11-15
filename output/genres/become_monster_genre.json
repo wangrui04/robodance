@@ -1,0 +1,10 @@
+{
+    "song_name": "become_monster.mp3",
+    "predicted_genre": "hiphop",
+    "features_used": {
+        "tempo_bpm": 143.55,
+        "avg_energy": 0.182,
+        "brightness": 2966.82,
+        "num_beats": 604
+    }
+}
